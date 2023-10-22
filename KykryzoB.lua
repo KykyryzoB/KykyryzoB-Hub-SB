@@ -14,7 +14,9 @@ block.Parent = game.Workspace
 --------------------------------------------------------------------------------------
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Robojini/Tuturial_UI_Library/main/UI_Template_1"))()
 
-local Window = Library.CreateLib("KykypyzoB Hub SB", "RJTheme3")
+if game.PlaceId == 6403373529 then  --- спасибо agurre за то что сказал(а) как делать
+
+local Window = Library.CreateLib("KykypyzoB Hub SB", "RJTheme8")
 
 local Tab = Window:NewTab("INFO")
 
@@ -32,44 +34,26 @@ end)
 
 local Tab = Window:NewTab("Teleport")
 
-local Section = Tab:NewSection("SafePort")
+local Section = Tab:NewSection("Teleport")
 
-Section:NewButton("TP to SafePort", "Teleported", function()
+Section:NewDropdown("All Teleports", "Teleport", {"SafePort", "Slapples Isl", "Moai Isl", "Plate", "Battle Arena", "Default Arena", "Normal Arena", "Spawn"}, function(abc)
+    if abc == "SafePort" then
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-450.217651, -28151.4883, -2.34852624, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-end)
-
-local Section = Tab:NewSection("Slapples island")
-
-
-Section:NewButton("TP to Slapples island", "Teleported", function()
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Arena.island5.Union.CFrame
-end)
-
-local Section = Tab:NewSection("Moai island")
-
-
-Section:NewButton("TP to Moai island", "Teleported", function()
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Arena.island4["Big Tree"].Bark.CFrame
-end)
-
-local Section = Tab:NewSection("Plate")
-
-
-Section:NewButton("TP to Plate", "Teleported", function()
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Arena.Plate.CFrame
-end)
-
-local Section = Tab:NewSection("Battle Arena")
-
-
-Section:NewButton("TP to Battle Arena", "Teleported", function()
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Battlearena.Arena.CFrame * CFrame.new(0,10,0)
-end)
-
-local Section = Tab:NewSection("Default Arena")
-
-Section:NewButton("TP to Default Arena", "Teleported", function()
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(120,364,-3)
+  elseif abc == "Slapples Isl" then
+  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Arena.island5.Union.CFrame
+ elseif abc == "Moai Isl" then
+ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Arena.island4["Big Tree"].Bark.CFrame
+elseif abc == "Plate" then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Arena.Plate.CFrame
+elseif abc == "Battle Arena" then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Battlearena.Arena.CFrame * CFrame.new(0,10,0)
+elseif abc == "Default Arena" then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(120,364,-3)
+elseif abc == "Normal Arena" then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-15.3642788, -3.69053721, -7.41954088, 0.405183077, -0.00669269683, -0.914211094, -1.2553046e-05, 0.999973178, -0.00732610561, 0.914235532, 0.00297989813, 0.40517211)
+elseif abc == "Spawn" then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-798.47345, 329.357147, 0.84058404, -0.791819096, -2.52048302e-08, -0.610755682, -2.72838037e-08, 1, -5.89596372e-09, 0.610755682, 1.19952013e-08, -0.791819096)
+end
 end)
 
 local Tab = Window:NewTab("Badge")
@@ -79,22 +63,6 @@ local Section = Tab:NewSection("Retro")
 
 Section:NewButton("Get Retro (in Retro Obby)", "Badge", function()
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.FinishDoor_Retro.Part.CFrame
-end)
-
-local Section = Tab:NewSection("Tinkerer")
-
-
-Section:NewButton("Get Tinkerer (in The Null Zone)", "Badge", function()
-    fireclickdetector(workspace.Model.Handle.ClickDetector)
-end)
-
-local Section = Tab:NewSection("Null")
-
-
-Section:NewButton("Get Null (in The Null Zone)", "Badge", function()
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-110.41799926757812, 3.4679999351501465, -99.48200225830078)
-    ---------------------------------------------------------------------------------------------------------------------------------------
-    fireclickdetector(workspace:GetChildren()[13].Handle.ClickDetector)
 end)
 
 local Section = Tab:NewSection("Brazil Badge")
@@ -586,3 +554,4 @@ local Section = Tab:NewSection("Gravity Hack")
 Section:NewSlider("Player Gravity", "SliderInfo", 500, 0, function(s) -- 500 (Макс. значение) | 0 (Мин. значение)
     workspace.Gravity = s
 end)
+end
