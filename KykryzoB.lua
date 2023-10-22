@@ -555,3 +555,145 @@ Section:NewSlider("Player Gravity", "SliderInfo", 500, 0, function(s) -- 500 (М
     workspace.Gravity = s
 end)
 end
+
+if game.PlaceId == 9431156611 then
+
+local Window = Library.CreateLib("KykypyzoB Hub SR", "RJTheme8")
+
+local Tab = Window:NewTab("INFO")
+
+local Section = Tab:NewSection("Creator( if you have bug and idies dm me)")
+
+Section:NewButton("ultramegasuperpuperdupergul", "INFO", function()
+
+end)
+
+local Section = Tab:NewSection("Dis Server")
+
+Section:NewButton("https://discord.gg/jAEwCWSUs4", "INFO", function()
+    
+end)
+
+local Tab = Window:NewTab("Antis")
+
+local Section = Tab:NewSection("Anti Lava")
+
+Section:NewToggle("Anti Lava", "Antis", function(state)
+    if state then
+        -- Создаем новый блок
+local block = Instance.new("Part")
+
+-- Настройки блока
+block.Name = "AntiLavaKYK"
+block.Size = Vector3.new(100, 1, 110) -- Размер блока (можно изменить на нужные значения)
+block.Transparency = 0.5 -- Прозрачность блока (1 = полностью прозрачный)
+block.CanCollide = true -- Блок не будет взаимодействовать с другими объектами
+block.Anchored = true -- Блок будет закреплен на месте
+block.Position = Vector3.new(-240.93428, -29.1903477, 401.880219, 0.349086821, -0.0864096507, 0.933097899, 1.95710618e-06, 0.995739639, 0.0922098681, -0.937090397, -0.0321874209, 0.347599745) -- Позиция блока (можно изменить на нужные значения)
+
+-- Добавляем блок в игровой мир
+block.Parent = game.Workspace
+    else
+        
+-- Находим блок по его имени
+local block = game.Workspace:FindFirstChild("AntiLavaKYK")
+
+-- Проверяем, что блок существует
+if block then
+    -- Удаляем блок
+    block:Destroy()
+else
+    print("Блок не найден")
+end
+    end
+end)
+
+local Section = Tab:NewSection("Anti Acid")
+
+Section:NewToggle("Anti Acid", "Antis", function(state)
+    if state then
+        -- Создаем новый блок
+local block = Instance.new("Part")
+
+-- Настройки блока
+block.Name = "AntiAcidKYK"
+block.Size = Vector3.new(200, 1, 200) -- Размер блока (можно изменить на нужные значения)
+block.Transparency = 0.5 -- Прозрачность блока (1 = полностью прозрачный)
+block.CanCollide = true -- Блок не будет взаимодействовать с другими объектами
+block.Anchored = true -- Блок будет закреплен на месте
+block.Position = Vector3.new(-64.6827164, 0.228857517, -711.446655, -0.91774404, -0.0017926431, 0.397168338, -6.40035691e-10, 0.999989808, 0.00451351237, -0.397172391, 0.004142249, -0.917734683) -- Позиция блока (можно изменить на нужные значения)
+
+-- Добавляем блок в игровой мир
+block.Parent = game.Workspace
+    else
+        
+-- Находим блок по его имени
+local block = game.Workspace:FindFirstChild("AntiAcidKYK")
+
+-- Проверяем, что блок существует
+if block then
+    -- Удаляем блок
+    block:Destroy()
+else
+    print("Блок не найден")
+end
+    end
+end)
+
+local Tab = Window:NewTab("Remove")
+
+local Section = Tab:NewSection("Remove Acid")
+
+Section:NewButton("Remove Acid", "Remove", function()
+    -- Получаем все объекты в игре
+local objects = game:GetService("Workspace"):GetDescendants()
+
+-- Проходимся по каждому объекту
+for _, object in ipairs(objects) do
+    -- Проверяем, является ли имя объекта "Acid"
+    if object.Name == "Acid" then
+        -- Удаляем объект
+        object:Destroy()
+    end
+end
+end)
+
+local Section = Tab:NewSection("Remove Zone Blur")
+
+Section:NewButton("Remove Zone Blur", "Remove", function()
+    -- Получаем все объекты в игре
+local objects = game:GetService("ReplicatedStorage"):GetDescendants()
+    -- Получаем все объекты в игре
+local objects = game:GetService("ReplicatedStorage"):GetDescendants()
+
+-- Проходимся по каждому объекту
+for _, object in ipairs(objects) do
+    -- Проверяем, является ли имя объекта "ZoneEffects"
+    if object.Name == "ZoneEffects" then
+        -- Удаляем объект
+        object:Destroy()
+    end
+end
+end)
+
+local Tab = Window:NewTab("Players")
+
+local Section = Tab:NewSection("Speed Hack")
+
+Section:NewSlider("Player Speed", "SliderInfo", 500, 0, function(s) -- 500 (Макс. значение) | 0 (Мин. значение)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+local Section = Tab:NewSection("Jump Hack")
+
+Section:NewSlider("Player Jump", "SliderInfo", 500, 0, function(s) -- 500 (Макс. значение) | 0 (Мин. значение)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+end)
+
+local Section = Tab:NewSection("Gravity Hack")
+
+Section:NewSlider("Player Gravity", "SliderInfo", 500, 0, function(s) -- 500 (Макс. значение) | 0 (Мин. значение)
+    workspace.Gravity = s
+end)
+
+end
