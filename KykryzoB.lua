@@ -198,10 +198,10 @@ end)
 
 local Tab = Window:NewTab("Antis")
 
-local Section = Tab:NewSection("Anti Void")
+local Section = Tab:NewSection("Anti Void(In Retro, Battle Arena, Psycho)")
 
 
-Section:NewToggle("Anti Void (Work in Battle Arena, Retro Obby)", "ToggleInfo", function(state)
+Section:NewToggle("Anti Void", "ToggleInfo", function(state)
     if state then
         -- Создаем новый блок
 local block = Instance.new("Part")
