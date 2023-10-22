@@ -16,6 +16,20 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Roboj
 
 local Window = Library.CreateLib("KykypyzoB Hub SB", "RJTheme3")
 
+local Tab = Window:NewTab("INFO")
+
+local Section = Tab:NewSection("Creator( if you have bug and idies dm me)")
+
+Section:NewButton("ultramegasuperpuperdupergul", "INFO", function()
+
+end)
+
+local Section = Tab:NewSection("Dis Server")
+
+Section:NewButton("https://discord.gg/jAEwCWSUs4", "INFO", function()
+    
+end)
+
 local Tab = Window:NewTab("Teleport")
 
 local Section = Tab:NewSection("SafePort")
@@ -78,6 +92,8 @@ local Section = Tab:NewSection("Null")
 
 
 Section:NewButton("Get Null (in The Null Zone)", "Badge", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-110.41799926757812, 3.4679999351501465, -99.48200225830078)
+    ---------------------------------------------------------------------------------------------------------------------------------------
     fireclickdetector(workspace:GetChildren()[13].Handle.ClickDetector)
 end)
 
@@ -103,6 +119,29 @@ local Section = Tab:NewSection("Get The Lone Orange Badge")
 
 Section:NewButton("The Lone Orange Badge", "Badge", function()
     fireclickdetector(workspace.Arena.island5.Orange.ClickDetector)
+end)
+
+local Section = Tab:NewSection("Get Trap 22>30min")
+
+Section:NewButton("Get Trap Fast", "Badge", function()
+    if game.Players.LocalPlayer.leaderstats.Glove.Value == "Brick" then
+for i = 1, 200 do
+game:GetService("ReplicatedStorage").lbrick:FireServer()
+game.Players.LocalPlayer.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel.Text = game.Players.LocalPlayer.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel.Text + 1;
+wait(Random.new():NextNumber(1.1,1.25))
+game:GetService("ReplicatedStorage").lbrick:FireServer()
+game.Players.LocalPlayer.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel.Text = game.Players.LocalPlayer.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel.Text + 1;
+wait(Random.new():NextNumber(1.1,1.25))
+game:GetService("ReplicatedStorage").lbrick:FireServer()
+game.Players.LocalPlayer.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel.Text = game.Players.LocalPlayer.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel.Text + 1;
+wait(Random.new():NextNumber(1.1,1.25))
+game:GetService("ReplicatedStorage").lbrick:FireServer()
+game.Players.LocalPlayer.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel.Text = game.Players.LocalPlayer.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel.Text + 1;
+wait(Random.new():NextNumber(1.1,1.25))
+game:GetService('VirtualInputManager'):SendKeyEvent(true,'E',false,x)
+wait(Random.new():NextNumber(1.1,1.25))
+end
+end
 end)
 
 local Tab = Window:NewTab("Combat")
