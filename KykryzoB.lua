@@ -81,6 +81,30 @@ Section:NewButton("Get Null (in The Null Zone)", "Badge", function()
     fireclickdetector(workspace:GetChildren()[13].Handle.ClickDetector)
 end)
 
+local Section = Tab:NewSection("Brazil Badge")
+
+Section:NewButton("TP to Brazil(You got kicked)", "Badge", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Lobby.brazil.portal.CFrame
+end)
+
+local Section = Tab:NewSection("Duck Badge")
+
+Section:NewButton("Get Duck badge", "Badge", function()
+    fireclickdetector(workspace.Arena["default island"]["Rubber Ducky"].ClickDetector)
+end)
+
+local Section = Tab:NewSection("Court Evidence Badge")
+
+Section:NewButton("Get Court Evidence badge", "Badge", function()
+    fireclickdetector(workspace.Lobby.Scene.knofe.ClickDetector)
+end)
+
+local Section = Tab:NewSection("Get The Lone Orange Badge")
+
+Section:NewButton("The Lone Orange Badge", "Badge", function()
+    fireclickdetector(workspace.Arena.island5.Orange.ClickDetector)
+end)
+
 local Tab = Window:NewTab("Combat")
 
 local Section = Tab:NewSection("Spawn Retro Obby")
@@ -234,11 +258,11 @@ local block = Instance.new("Part")
 
 -- Настройки блока
 block.Name = "AntiVoidRetro6"
-block.Size = Vector3.new(440, 3, 150) -- Размер блока (можно изменить на нужные значения)
+block.Size = Vector3.new(500, 3, 150) -- Размер блока (можно изменить на нужные значения)
 block.Transparency = 0.1 -- Прозрачность блока (1 = полностью прозрачный)
 block.CanCollide = true -- Блок не будет взаимодействовать с другими объектами
 block.Anchored = true -- Блок будет закреплен на месте
-block.Position = Vector3.new(-27829.8477, 164.135117, 4835.11084, 0, 0, 1, 0, 1, -0, -1, 0, 0) -- Позиция блока (можно изменить на нужные значения)
+block.Position = Vector3.new(-27930.4746, 160.009445, 4835.11084, -1.1920929e-07, 0, 1.00000012, 0, 1, 0, -1.00000012, 0, -1.1920929e-07) -- Позиция блока (можно изменить на нужные значения)
 
 -- Добавляем блок в игровой мир
 block.Parent = game.Workspace
@@ -502,4 +526,24 @@ else
     print("Блок не найден")
 end
     end
+end)
+
+local Tab = Window:NewTab("Players")
+
+local Section = Tab:NewSection("Speed Hack")
+
+Section:NewSlider("Player Speed", "SliderInfo", 500, 0, function(s) -- 500 (Макс. значение) | 0 (Мин. значение)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+local Section = Tab:NewSection("Jump Hack")
+
+Section:NewSlider("Player Jump", "SliderInfo", 500, 0, function(s) -- 500 (Макс. значение) | 0 (Мин. значение)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+end)
+
+local Section = Tab:NewSection("Gravity Hack")
+
+Section:NewSlider("Player Gravity", "SliderInfo", 500, 0, function(s) -- 500 (Макс. значение) | 0 (Мин. значение)
+    workspace.Gravity = s
 end)
