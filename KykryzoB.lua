@@ -32,6 +32,46 @@ Section:NewButton("https://discord.gg/jAEwCWSUs4", "INFO", function()
     
 end)
 
+local Tab = Window:NewTab("Misc")
+
+local Section = Tab:NewSection("SB Test Server (for leaking)")
+
+Section:NewButton("Test Server SB :credit guy that exsitis", "Misc", function()
+    local teleportFunc = queueonteleport or queue_on_teleport or syn and syn.queue_on_teleport
+if teleportFunc then
+    teleportFunc([[
+        if not game:IsLoaded() then
+            game.Loaded:Wait()
+        end
+        repeat wait() until game.Players.LocalPlayer
+        game:GetService("RunService").RenderStepped:Connect(function()
+            game:GetService("GuiService"):ClearError()
+        end)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/KykyryzoB/KykyryzoB-Hub-SB/main/KykryzoB.lua"))()
+    ]])
+end
+game:GetService("TeleportService"):Teleport(9020359053)
+end)
+
+local Section = Tab:NewSection("SR Test Server (for leaking)")
+
+Section:NewButton("Test Server SR :credit guy that exsitis", "Misc", function()
+    local teleportFunc = queueonteleport or queue_on_teleport or syn and syn.queue_on_teleport
+if teleportFunc then
+    teleportFunc([[
+        if not game:IsLoaded() then
+            game.Loaded:Wait()
+        end
+        repeat wait() until game.Players.LocalPlayer
+        game:GetService("RunService").RenderStepped:Connect(function()
+            game:GetService("GuiService"):ClearError()
+        end)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/KykyryzoB/KykyryzoB-Hub-SB/main/KykryzoB.lua"))()
+    ]])
+end
+game:GetService("TeleportService"):Teleport(9412268818)
+end)
+
 local Tab = Window:NewTab("Teleport")
 
 local Section = Tab:NewSection("Teleport")
@@ -198,10 +238,10 @@ end)
 
 local Tab = Window:NewTab("Antis")
 
-local Section = Tab:NewSection("Anti Void(In Retro, Battle Arena, Psycho)")
+local Section = Tab:NewSection("Anti Void")
 
 
-Section:NewToggle("Anti Void", "ToggleInfo", function(state)
+Section:NewToggle("Anti Void (Work in Battle Arena, Retro Obby)", "ToggleInfo", function(state)
     if state then
         -- Создаем новый блок
 local block = Instance.new("Part")
@@ -579,6 +619,7 @@ local Section = Tab:NewSection("Gravity Hack")
 Section:NewSlider("Player Gravity", "SliderInfo", 500, 0, function(s) -- 500 (Макс. значение) | 0 (Мин. значение)
     workspace.Gravity = s
 end)
+
 end
 
 if game.PlaceId == 9431156611 then
@@ -719,6 +760,86 @@ local Section = Tab:NewSection("Gravity Hack")
 
 Section:NewSlider("Player Gravity", "SliderInfo", 500, 0, function(s) -- 500 (Макс. значение) | 0 (Мин. значение)
     workspace.Gravity = s
+end)
+
+end
+
+if game.PlaceId == 9020359053 then
+
+local Window = Library.CreateLib("KykypyzoB Hub SB Test Server :credit guy that exsitis", "RJTheme8")
+
+local Tab = Window:NewTab("INFO")
+
+local Section = Tab:NewSection("Creator( if you have bug and idies dm me)")
+
+Section:NewButton("ultramegasuperpuperdupergul", "INFO", function()
+
+end)
+
+local Section = Tab:NewSection("Dis Server")
+
+Section:NewButton("https://discord.gg/jAEwCWSUs4", "INFO", function()
+    
+end)
+
+local Tab = Window:NewTab("Home")
+
+local Section = Tab:NewSection("Inf Yiedl")
+
+Section:NewButton("Inf Yield", "Home", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
+
+local Section = Tab:NewSection("FreeCam")
+
+Section:NewButton("FreeCam", "Home", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/SB%20Freecam"))()
+end)
+
+local Section = Tab:NewSection("FreeCam(Mobile)")
+
+Section:NewButton("FreeCam(Mobile)", "Home", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/0Ben1/fe/main/Freecam", true))()
+end)
+
+end
+
+if game.PlaceId == 9412268818 then
+
+local Window = Library.CreateLib("KykypyzoB Hub SR Test Server :credit guy that exsitis", "RJTheme8")
+
+local Tab = Window:NewTab("INFO")
+
+local Section = Tab:NewSection("Creator( if you have bug and idies dm me)")
+
+Section:NewButton("ultramegasuperpuperdupergul", "INFO", function()
+
+end)
+
+local Section = Tab:NewSection("Dis Server")
+
+Section:NewButton("https://discord.gg/jAEwCWSUs4", "INFO", function()
+    
+end)
+
+local Tab = Window:NewTab("Home")
+
+local Section = Tab:NewSection("Inf Yiedl")
+
+Section:NewButton("Inf Yield", "Home", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
+
+local Section = Tab:NewSection("FreeCam")
+
+Section:NewButton("FreeCam", "Home", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/SB%20Freecam"))()
+end)
+
+local Section = Tab:NewSection("FreeCam(Mobile)")
+
+Section:NewButton("FreeCam(Mobile)", "Home", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/0Ben1/fe/main/Freecam", true))()
 end)
 
 end
