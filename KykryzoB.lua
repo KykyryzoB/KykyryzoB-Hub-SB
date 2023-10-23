@@ -22,14 +22,20 @@ local Tab = Window:NewTab("INFO")
 
 local Section = Tab:NewSection("Creator( if you have bug and idies dm me)")
 
-Section:NewButton("ultramegasuperpuperdupergul", "INFO", function()
-
+Section:NewButton("Click to copy", "INFO", function()
+    setclipboard('ultramegasuperpuperdupergul')
 end)
 
-local Section = Tab:NewSection("Dis Server")
+local Section = Tab:NewSection("Discord Server")
 
-Section:NewButton("https://discord.gg/jAEwCWSUs4", "INFO", function()
-    
+Section:NewButton("Click to copy", "INFO", function()
+    setclipboard('https://discord.gg/jAEwCWSUs4')
+end)
+
+local Section = Tab:NewSection("Destroy Hub")
+
+Section:NewButton("Destroy", "INFO", function()
+    Library:Destroy()
 end)
 
 local Tab = Window:NewTab("Misc")
@@ -620,6 +626,32 @@ Section:NewSlider("Player Gravity", "SliderInfo", 500, 0, function(s) -- 500 (М
     workspace.Gravity = s
 end)
 
+local Tab = Window:NewTab("Others Hub")
+
+local Section = Tab:NewSection("Guy that exsits hub")
+
+Section:NewButton("Hub that exsits", "Others Hub", function()
+    loadstring(game:HttpGet(("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Slap%20Battles")))()
+end)
+
+local Section = Tab:NewSection("Inf Yield")
+
+Section:NewButton("Infite Yield", "Others Hub", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
+
+local Section = Tab:NewSection("R20 Hub")
+
+Section:NewButton("R20", "Others Hub", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/cheesynob39/R2O/main/LOADSTRING.lua"))()
+end)
+
+local Section = Tab:NewSection("TroXer")
+
+Section:NewButton("TroXer-Hub", "Others Hub", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/CrismonPetrasion/TroXer-Hub/main/Testing"))()
+end)
+
 end
 
 if game.PlaceId == 9431156611 then
@@ -638,6 +670,24 @@ local Section = Tab:NewSection("Dis Server")
 
 Section:NewButton("https://discord.gg/jAEwCWSUs4", "INFO", function()
     
+end)
+
+local Tab = Window:NewTab("Teleport")
+
+local Section = Tab:NewSection("Teleport (can kicked)")
+
+Section:NewDropdown("Teleport", "Teleport", {"Farm", "Lighthouse", "Mountain", "Acid", "Market"}, function(waw)
+    if waw == "Farm" then
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(430.46283, 92.7780762, 316.353607, 0.999637723, -3.2292086e-05, -0.0269170273, -3.22776259e-07, 0.999999285, -0.00121193845, 0.0269170459, 0.00121150829, 0.999637008)
+elseif waw == "Lighthouse" then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(303.358215, 149.871368, -578.09436, -0.0048140781, 0.00255327276, -0.999985158, -3.60583931e-06, 0.999996722, 0.00255331979, 0.999988437, 1.58763287e-05, -0.00481405389)
+elseif waw == "Mountain" then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-493.653381, 187.25943, 312.961243, -0.62376368, -0.00541838398, -0.781594157, -1.12927028e-05, 0.999975979, -0.00692330906, 0.781613052, -0.00430969195, -0.623748779)
+elseif waw == "Market" then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-602.453308, 18.2658653, -466.985443, -0.347513348, 0.00378503045, 0.937667429, 4.47700927e-07, 0.999991834, -0.00403644657, -0.937675059, -0.00140229985, -0.347510517)
+elseif waw == "Acid" then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-229.818787, 18.4904289, -710.132202, 0.521155775, -0.00628923671, -0.853438377, -1.13886799e-05, 0.999972761, -0.00737603987, 0.853461623, 0.00385377603, 0.521141529)
+end
 end)
 
 local Tab = Window:NewTab("Antis")
