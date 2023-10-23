@@ -256,10 +256,117 @@ end)
 
 local Tab = Window:NewTab("Antis")
 
-local Section = Tab:NewSection("Anti Void")
+local Section = Tab:NewSection("Anti Portal (Only Normal Arena)")
+
+Section:NewToggle("Anti Portal", "Antis", function(state)
+    if state then
+        -- Создаем новый блок
+local block = Instance.new("Part")
+
+-- Настройки блока
+block.Name = "Anti GS"
+block.Size = Vector3.new(12.762105941772461, 14.961214065551758, 5.8665102124214172) -- Размер блока (можно изменить на нужные значения)
+block.Transparency = 0.9 -- Прозрачность блока (1 = полностью прозрачный)
+block.CanCollide = true -- Блок не будет взаимодействовать с другими объектами
+block.Anchored = true -- Блок будет закреплен на месте
+block.Position = Vector3.new(-803.081604, 328.906738, -21.2476311, 0, 0, 1, 0, -1, 0, 1, 0, -0) -- Позиция блока (можно изменить на нужные значения)
+
+-- Добавляем блок в игровой мир
+block.Parent = game.Workspace
+-----------------------------------------------------------------------------------------------------------
+-- Создаем новый блок
+local block = Instance.new("Part")
+
+-- Настройки блока
+block.Name = "Anti KS"
+block.Size = Vector3.new(12.762105941772461, 14.961214065551758, 5.8665102124214172) -- Размер блока (можно изменить на нужные значения)
+block.Transparency = 0.9 -- Прозрачность блока (1 = полностью прозрачный)
+block.CanCollide = true -- Блок не будет взаимодействовать с другими объектами
+block.Anchored = true -- Блок будет закреплен на месте
+block.Position = Vector3.new(-788.860962, 328.906738, 17.1004639, 0, 0, -1, 0, -1, -0, -1, 0, -0) -- Позиция блока (можно изменить на нужные значения)
+
+-- Добавляем блок в игровой мир
+block.Parent = game.Workspace
+---------------------------------------------------------------------------------------------------------------
+-- Создаем новый блок
+local block = Instance.new("Part")
+
+-- Настройки блока
+block.Name = "Anti SR"
+block.Size = Vector3.new(12.762105941772461, 14.961214065551758, 5.8665102124214172) -- Размер блока (можно изменить на нужные значения)
+block.Transparency = 0.9 -- Прозрачность блока (1 = полностью прозрачный)
+block.CanCollide = true -- Блок не будет взаимодействовать с другими объектами
+block.Anchored = true -- Блок будет закреплен на месте
+block.Position = Vector3.new(-803.098694, 328.906738, 16.7261944, 0, 0, 1, 0, -1, 0, 1, 0, -0) -- Позиция блока (можно изменить на нужные значения)
+
+-- Добавляем блок в игровой мир
+block.Parent = game.Workspace
+------------------------------------------------------------------------------------------------------------
+-- Создаем новый блок
+local block = Instance.new("Part")
+
+-- Настройки блока
+block.Name = "Anti DF"
+block.Size = Vector3.new(5.8665102124214172, 14.961214065551758, 12.762105941772461) -- Размер блока (можно изменить на нужные значения)
+block.Transparency = 0.9 -- Прозрачность блока (1 = полностью прозрачный)
+block.CanCollide = true -- Блок не будет взаимодействовать с другими объектами
+block.Anchored = true -- Блок будет закреплен на месте
+block.Position = Vector3.new(-810.073608, 329.886566, -8.02650452, 1, 0, 0, 0, -1, 0, 0, 0, -1) -- Позиция блока (можно изменить на нужные значения)
+
+-- Добавляем блок в игровой мир
+block.Parent = game.Workspace
+    else
+        -- Находим блок по его имени
+local block = game.Workspace:FindFirstChild("Anti GS")
+
+-- Проверяем, что блок существует
+if block then
+    -- Удаляем блок
+    block:Destroy()
+else
+    print("Блок не найден")
+end
+----------------
+-- Находим блок по его имени
+local block = game.Workspace:FindFirstChild("Anti KS")
+
+-- Проверяем, что блок существует
+if block then
+    -- Удаляем блок
+    block:Destroy()
+else
+    print("Блок не найден")
+end
+--------------------------
+-- Находим блок по его имени
+local block = game.Workspace:FindFirstChild("Anti SR")
+
+-- Проверяем, что блок существует
+if block then
+    -- Удаляем блок
+    block:Destroy()
+else
+    print("Блок не найден")
+end
+------------------------------
+-- Находим блок по его имени
+local block = game.Workspace:FindFirstChild("Anti DF")
+
+-- Проверяем, что блок существует
+if block then
+    -- Удаляем блок
+    block:Destroy()
+else
+    print("Блок не найден")
+end
+
+    end
+end)
+
+local Section = Tab:NewSection("Anti Void (Work in Battle Arena, Retro Obby, Psycho)")
 
 
-Section:NewToggle("Anti Void (Work in Battle Arena, Retro Obby)", "ToggleInfo", function(state)
+Section:NewToggle("Anti Void", "ToggleInfo", function(state)
     if state then
         -- Создаем новый блок
 local block = Instance.new("Part")
