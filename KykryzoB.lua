@@ -1012,3 +1012,67 @@ Section:NewButton("FreeCam(Mobile)", "Home", function()
 end)
 
 end
+
+if game.PlaceId == 13833961666 then
+
+local Window = Library.CreateLib("KykyryzoB Hub Enternal Bob", "RJTheme3")
+
+local Tab = Window:NewTab("Anits")
+
+local Section = Tab:NewSection("Anti void")
+
+Section:NewToggle("Anti Void", "Antis", function(state)
+    if state then
+        -- Создаем новый блок
+local block = Instance.new("Part")
+
+-- Настройки блока
+block.Name = "Anti Void Bob"
+block.Size = Vector3.new(2500, 16, 1140) -- Размер блока (можно изменить на нужные значения)
+block.Transparency = 0.4 -- Прозрачность блока (1 = полностью прозрачный)
+block.CanCollide = true -- Блок не будет взаимодействовать с другими объектами
+block.Anchored = true -- Блок будет закреплен на месте
+block.Position = Vector3.new(0, -8, -43, 1, 0, 0, 0, 1, 0, 0, 0, 1) -- Позиция блока (можно изменить на нужные значения)
+
+-- Добавляем блок в игровой мир
+block.Parent = game.Workspace
+
+    else
+        -- Находим блок по его имени
+local block = game.Workspace:FindFirstChild("Anti Void Bob")
+
+-- Проверяем, что блок существует
+if block then
+    -- Удаляем блок
+    block:Destroy()
+else
+    print("Блок не найден")
+end
+   end
+end)
+
+Section:NewButton("Anti Ring(you cant slap bob)", "Antis", function()
+    while game:GetService("RunService").RenderStepped:wait() do
+local ring = game.Workspace:FindFirstChild("Ring")
+
+-- Проверяем, существует ли объект "Ring"
+if ring then
+    -- Удаляем объект "Ring"
+    ring:Destroy()
+    print("Объект 'Ring' успешно удален.")
+else
+    print("Объект 'Ring' не найден.")
+end
+end
+end)
+
+Section:NewButton("Auto Slap Bob", "Antis", function()
+    while task.wait(0.1) do
+local Event = game:GetService("Workspace").bobBoss.DamageEvent Event:FireServer()
+end
+end)
+
+Section:NewButton("Inf yeild", "Antis", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)    
+end
