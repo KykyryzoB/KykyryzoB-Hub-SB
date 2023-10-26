@@ -172,6 +172,72 @@ end)
 
 local Tab = Window:NewTab("Combat")
 
+local Section = Tab:NewSection("Spam Shukuchi")
+
+Section:NewToggle("Spam Shukuchi", "Combat", function(state)
+    if state then
+        _G.loops = true
+
+while G.loops == true do wait() -- Вместо wait можно поставить рендер степпед 
+local player = game:GetService("Players"):GetPlayerFromCharacter(game:GetService("Players").LocalPlayer.Character)
+local closestPlayer = nil
+local closestDistance = math.huge
+
+-- Поиск ближайшего игрока
+for , otherPlayer in ipairs(game:GetService("Players"):GetPlayers()) do
+    if otherPlayer ~= player then
+        local distance = (otherPlayer.Character.HumanoidRootPart.Position - player.Character.HumanoidRootPart.Position).Magnitude
+        if distance < closestDistance then
+            closestPlayer = otherPlayer
+            closestDistance = distance
+        end
+    end
+end
+
+if closestPlayer then
+    local args = {
+        [1] = closestPlayer
+    }
+
+    game:GetService("ReplicatedStorage"):WaitForChild("SM"):FireServer(unpack(args))
+    print("Серверное событие отправлено игроку: " .. closestPlayer.Name)
+else
+    print("Ближайший игрок не найден.")
+end
+end
+    else
+        _G.loops = false
+
+while G.loops == true do wait() -- Вместо wait можно поставить рендер степпед 
+local player = game:GetService("Players"):GetPlayerFromCharacter(game:GetService("Players").LocalPlayer.Character)
+local closestPlayer = nil
+local closestDistance = math.huge
+
+-- Поиск ближайшего игрока
+for , otherPlayer in ipairs(game:GetService("Players"):GetPlayers()) do
+    if otherPlayer ~= player then
+        local distance = (otherPlayer.Character.HumanoidRootPart.Position - player.Character.HumanoidRootPart.Position).Magnitude
+        if distance < closestDistance then
+            closestPlayer = otherPlayer
+            closestDistance = distance
+        end
+    end
+end
+
+if closestPlayer then
+    local args = {
+        [1] = closestPlayer
+    }
+
+    game:GetService("ReplicatedStorage"):WaitForChild("SM"):FireServer(unpack(args))
+    print("Серверное событие отправлено игроку: " .. closestPlayer.Name)
+else
+    print("Ближайший игрок не найден.")
+end
+end
+    end
+end)
+
 local Section = Tab:NewSection("Spawn Retro Obby")
 
 Section:NewButton("Retro Obby(Good for helping)", "Badge", function()
