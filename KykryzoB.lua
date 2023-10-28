@@ -805,6 +805,30 @@ Section:NewSlider("Player Gravity", "SliderInfo", 500, 0, function(s) -- 500 (М
     workspace.Gravity = s
 end)
 
+local Section = Tab:NewSection("Inf Jump")
+
+Section:NewButton("Inf Jump", "Players", function()
+    local player = game.Players.LocalPlayer
+local humanoid = player.Character.Humanoid
+
+-- Переменная для отслеживания состояния прыжка
+local isJumping = false
+
+-- Функция для выполнения прыжка и отталкивания
+local function jumpAndBounce()
+    if not isJumping then
+        isJumping = true
+        humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+    else
+        humanoid.Jump = true
+        humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+    end
+end
+
+-- Обработка нажатия клавиши прыжка
+game:GetService("UserInputService").JumpRequest:Connect(jumpAndBounce)
+end)
+
 local Tab = Window:NewTab("Others Hub")
 
 local Section = Tab:NewSection("Guy that exsits hub")
