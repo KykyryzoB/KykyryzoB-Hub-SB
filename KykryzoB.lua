@@ -805,9 +805,9 @@ Section:NewSlider("Player Gravity", "SliderInfo", 500, 0, function(s) -- 500 (М
     workspace.Gravity = s
 end)
 
-local Section = Tab:NewSection("Inf Jump")
+local Section = Tab:NewSection("Infinite Jump")
 
-Section:NewButton("Inf Jump", "ButtonInfo"", function()
+Section:NewButton("Inf Jump", "ButtonInfo", function()
     local player = game.Players.LocalPlayer
 local humanoid = player.Character.Humanoid
 
