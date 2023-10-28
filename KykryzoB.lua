@@ -807,7 +807,7 @@ end)
 
 local Section = Tab:NewSection("Inf Jump")
 
-Section:NewButton("Inf Jump", "Players", function()
+Section:NewButton("Inf Jump", "ButtonInfo"", function()
     local player = game.Players.LocalPlayer
 local humanoid = player.Character.Humanoid
 
