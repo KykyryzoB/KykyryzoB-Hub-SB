@@ -172,6 +172,66 @@ end)
 
 local Tab = Window:NewTab("Combat")
 
+local Section = Tab:NewSection("Spam Shukuchi")
+
+Section:NewToggle("Spam Shukuchi", "Combat", function(state)
+    if state then
+        _G.loops = true
+
+while _G.loops == true do wait() -- Вместо wait можно поставить рендер степпед 
+local player = game.Players.LocalPlayer
+local nearestPlayer = nil
+local shortestDistance = math.huge
+
+-- Поиск ближайшего игрока
+for _, otherPlayer in ipairs(game.Players:GetPlayers()) do
+    if otherPlayer ~= player then
+        local distance = (otherPlayer.Character.HumanoidRootPart.Position - player.Character.HumanoidRootPart.Position).magnitude
+        if distance < shortestDistance then
+            shortestDistance = distance
+            nearestPlayer = otherPlayer
+        end
+    end
+end
+
+if nearestPlayer then
+    local args = {
+        [1] = nearestPlayer
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("SM"):FireServer(unpack(args))
+end
+end
+    else
+        _G.loops = false
+
+while _G.loops == true do wait() -- Вместо wait можно поставить рендер степпед 
+local player = game.Players.LocalPlayer
+local nearestPlayer = nil
+local shortestDistance = math.huge
+
+-- Поиск ближайшего игрока
+for _, otherPlayer in ipairs(game.Players:GetPlayers()) do
+    if otherPlayer ~= player then
+        local distance = (otherPlayer.Character.HumanoidRootPart.Position - player.Character.HumanoidRootPart.Position).magnitude
+        if distance < shortestDistance then
+            shortestDistance = distance
+            nearestPlayer = otherPlayer
+        end
+    end
+end
+
+if nearestPlayer then
+    local args = {
+        [1] = nearestPlayer
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("SM"):FireServer(unpack(args))
+end
+end
+    end
+end)
+
 local Section = Tab:NewSection("Spawn Retro Obby")
 
 Section:NewButton("Retro Obby(Good for helping)", "Badge", function()
