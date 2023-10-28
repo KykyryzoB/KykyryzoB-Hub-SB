@@ -827,6 +827,7 @@ end
 
 -- Обработка нажатия клавиши прыжка
 game:GetService("UserInputService").JumpRequest:Connect(jumpAndBounce)
+end
 end)
 
 local Tab = Window:NewTab("Others Hub")
