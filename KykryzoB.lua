@@ -1292,3 +1292,94 @@ Section:NewSlider("Player Gravity", "SliderInfo", 500, 0, function(s) -- 500 (М
 end)
 
 end
+
+if game.PlaceId == 15032232772
+
+local Window = Library.CreateLib("KykyryzoB Hub Sword Battles", "RJTheme8")
+
+local Tab = Window:NewTab("INFO")
+
+local Section = Tab:NewSection("Creator( if you have bug and idies dm me)")
+
+Section:NewButton("Click to copy", "INFO", function()
+    setclipboard('ultramegasuperpuperdupergul')
+end)
+
+local Section = Tab:NewSection("Discord Server")
+
+Section:NewButton("Click to copy", "INFO", function()
+    setclipboard('https://discord.gg/jAEwCWSUs4')
+end)
+
+local Section = Tab:NewSection("Destroy Hub")
+
+Section:NewButton("Destroy", "INFO", function()
+    Library:Destroy()
+end)
+
+local Tab = Window:NewTab("Misc")
+
+local Section = Tab:NewSection("Farm Kills")
+
+Section:NewToggle("Farm Kills", "ToggleInfo", function(state)
+    if state then
+        _G.loops = true
+
+while _G.loops == true do  -- Вместо wait можно поставить рендер степпед 
+for i,v in pairs(game:GetDescendants()) do
+        if v.Name == 'NormalGiver' or v.Name == 'GoldenGiver' then
+            v.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+        end
+    end
+    wait(1)
+end
+    else
+        _G.loops = false
+
+while _G.loops == true do  -- Вместо wait можно поставить рендер степпед 
+for i,v in pairs(game:GetDescendants()) do
+        if v.Name == 'NormalGiver' or v.Name == 'GoldenGiver' then
+            v.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+        end
+    end
+    wait(1)
+end
+    end
+end)
+
+local Tab = Window:NewTab("Badge")
+
+local Section = Tab:NewSection("Get Crystal Badge")
+
+Section:NewButton("Get Crystal Badge", "ButtonInfo", function()
+    fireclickdetector(workspace["Arens Map"].Crys.ClickDetector)
+end)
+
+local Section = Tab:NewSection("Gat S.A.D Sword")
+
+Section:NewButton("Get S.A.D Sword (Sad Noob Badge)", "ButtonInfo", function()
+    local player = game.Players.LocalPlayer
+local badgeId = 2153837216
+local originalPosition = player.Character.HumanoidRootPart.CFrame
+
+local function teleportToHead()
+    local head = workspace[""].Head
+    if head then
+        player.Character.HumanoidRootPart.CFrame = head.CFrame
+    end
+end
+
+local function teleportBack()
+    player.Character.HumanoidRootPart.CFrame = originalPosition
+end
+
+teleportToHead()
+
+game.BadgeService.BadgeAwarded:Connect(function(playerId, badge)
+    if playerId == player.UserId and badge == badgeId then
+        teleportBack()
+    end
+end)
+end)
+
+end
