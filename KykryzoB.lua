@@ -174,7 +174,7 @@ local Tab = Window:NewTab("Combat")
 
 local Section = Tab:NewSection("Spam Rhythm Explotion")
 
-Section:NewToggle("ToggleText", "ToggleInfo", function(state)
+Section:NewToggle("Spam Rhythm Explotion", "ToggleInfo", function(state)
     if state then
         _G.loops = true
 
