@@ -172,6 +172,141 @@ end)
 
 local Tab = Window:NewTab("Combat")
 
+local Section = Tab:NewSection("Spam Rhythm Explotion")
+
+Section:NewToggle("ToggleText", "ToggleInfo", function(state)
+    if state then
+        _G.loops = true
+
+while _G.loops == true do game:GetService("RunService").RenderStepped:wait() -- Вместо wait можно поставить рендер степпед 
+local args = {
+    [1] = "AoeExplosion",
+    [2] = 42
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("rhythmevent"):FireServer(unpack(args))
+
+end
+    else
+        _G.loops = false
+
+while _G.loops == true do game:GetService("RunService").RenderStepped:wait() -- Вместо wait можно поставить рендер степпед 
+local args = {
+    [1] = "AoeExplosion",
+    [2] = 42
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("rhythmevent"):FireServer(unpack(args))
+
+end
+    end
+end)
+
+local Section = Tab:NewSection("Spam Low Home Run")
+
+Section:NewToggle("Spam Low Home Run", "ToggleInfo", function(state)
+    if state then
+        _G.loops = true
+
+while _G.loops == true do wait() -- Вместо wait можно поставить рендер степпед 
+local args = {
+    [1] = {
+        ["start"] = true
+    }
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("HomeRun"):FireServer(unpack(args))
+
+local args = {
+    [1] = {
+        ["finished"] = true
+    }
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("HomeRun"):FireServer(unpack(args))
+end
+    else
+        _G.loops = false
+
+while _G.loops == true do wait() -- Вместо wait можно поставить рендер степпед 
+local args = {
+    [1] = {
+        ["start"] = true
+    }
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("HomeRun"):FireServer(unpack(args))
+
+local args = {
+    [1] = {
+        ["finished"] = true
+    }
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("HomeRun"):FireServer(unpack(args))
+end
+    end
+end)
+
+local Section = Tab:NewSection("Spam Full Home Run")
+
+Section:NewToggle("Spam Full Home Run", "ToggleInfo", function(state)
+    if state then
+        _G.loops = true
+
+while _G.loops == true do wait(1.2) -- Вместо wait можно поставить рендер степпед 
+    local args = {
+    [1] = {
+        ["start"] = true
+    }
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("HomeRun"):FireServer(unpack(args))
+
+wait(3)
+
+local args = {
+    [1] = {
+        ["finished"] = true
+    }
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("HomeRun"):FireServer(unpack(args))
+end
+
+      _G.loops = true
+
+      while _G.loops == true do game:GetService("RunService").RenderStepped:wait()
+       -- Вместо wait можно поставить рендер степпед 
+          game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 20
+      end
+
+    else
+        _G.loops = false
+
+while _G.loops == true do wait(1.2) -- Вместо wait можно поставить рендер степпед 
+    local args = {
+    [1] = {
+        ["start"] = true
+    }
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("HomeRun"):FireServer(unpack(args))
+
+wait(3)
+
+local args = {
+    [1] = {
+        ["finished"] = true
+    }
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("HomeRun"):FireServer(unpack(args))
+end
+
+    end
+end)
+
 local Section = Tab:NewSection("Spam Shukuchi")
 
 Section:NewToggle("Spam Shukuchi", "Combat", function(state)
