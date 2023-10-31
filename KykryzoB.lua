@@ -1293,7 +1293,7 @@ end)
 
 end
 
-if game.PlaceId == 15032232772
+if game.PlaceId == 15032232772 then
 
 local Window = Library.CreateLib("KykyryzoB Hub Sword Battles", "RJTheme8")
 
