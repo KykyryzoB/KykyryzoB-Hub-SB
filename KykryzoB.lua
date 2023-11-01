@@ -1373,4 +1373,10 @@ end
 teleportPlayer()
 end)
 
+local Section = Tab:NewSection("Get Duck Badge")
+
+Section:NewButton("Get Duck Badge (Duck Sword)", "ButtonInfo", function()
+    fireclickdetector(workspace["Rubber Duck"].ClickDetector)
+end)
+
 end
