@@ -1477,7 +1477,7 @@ end
     else
         _G.loops = false
 
-while _G.loops == true do game:GetService("RunService").RenderStepped:wait() -- Вместо wait можно поставить рендер степпед 
+while _G.loops == true do wait() -- Вместо wait можно поставить рендер степпед 
 game:GetService("Players").LocalPlayer.Character.PomnimSword.Fire:FireServer()
 
 end
