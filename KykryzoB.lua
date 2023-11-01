@@ -1462,4 +1462,26 @@ end
     end
 end)
 
+local Tab = Window:NewTab("Combat")
+
+local Section = Tab:NewSection("Spam POMNI Abbylity")
+
+Section:NewToggle("Spam POMNI ", "ToggleInfo", function(state)
+    if state then
+        _G.loops = true
+
+while _G.loops == true do game:GetService("RunService").RenderStepped:wait() -- Вместо wait можно поставить рендер степпед 
+game:GetService("Players").LocalPlayer.Character.PomnimSword.Fire:FireServer()
+
+end
+    else
+        _G.loops = false
+
+while _G.loops == true do game:GetService("RunService").RenderStepped:wait() -- Вместо wait можно поставить рендер степпед 
+game:GetService("Players").LocalPlayer.Character.PomnimSword.Fire:FireServer()
+
+end
+    end
+end)
+
 end
