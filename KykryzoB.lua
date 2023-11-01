@@ -1360,26 +1360,17 @@ local Section = Tab:NewSection("Gat S.A.D Sword")
 Section:NewButton("Get S.A.D Sword (Sad Noob Badge)", "ButtonInfo", function()
     local player = game.Players.LocalPlayer
 local badgeId = 2153837216
-local originalPosition = player.Character.HumanoidRootPart.CFrame
+local originalPosition = player.Character.HumanoidRootPart.Position
+local originalOrientation = player.Character.HumanoidRootPart.Orientation
 
-local function teleportToHead()
-    local head = workspace[""].Head
-    if head then
-        player.Character.HumanoidRootPart.CFrame = head.CFrame
-    end
+local function teleportPlayer()
+    local newPosition = Vector3.new(23.4632149, 42.36689, -259.350708)
+    local newOrientation = Vector3.new(-0.0522963554, -0.224042162, 0.973175347)
+
+    player.Character.HumanoidRootPart.CFrame = CFrame.new(newPosition, newPosition + newOrientation)
 end
 
-local function teleportBack()
-    player.Character.HumanoidRootPart.CFrame = originalPosition
-end
-
-teleportToHead()
-
-game.BadgeService.BadgeAwarded:Connect(function(playerId, badge)
-    if playerId == player.UserId and badge == badgeId then
-        teleportBack()
-    end
-end)
+teleportPlayer()
 end)
 
 end
