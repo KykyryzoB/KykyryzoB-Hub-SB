@@ -1347,6 +1347,25 @@ end
     end
 end)
 
+local Section = Tab:NewSection("TP To Place POMNI (for glove POMNI)")
+
+Section:NewButton("POMNI Place", "ButtonInfo", function()
+    local teleportFunc = queueonteleport or queue_on_teleport or syn and syn.queue_on_teleport
+if teleportFunc then
+    teleportFunc([[
+        if not game:IsLoaded() then
+            game.Loaded:Wait()
+        end
+        repeat wait() until game.Players.LocalPlayer
+        game:GetService("RunService").RenderStepped:Connect(function()
+            game:GetService("GuiService"):ClearError()
+        end)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/KykyryzoB/KykyryzoB-Hub-SB/main/KykryzoB.lua"))()
+    ]])
+end
+game:GetService("TeleportService"):Teleport(15233884508)
+end)
+
 local Tab = Window:NewTab("Badge")
 
 local Section = Tab:NewSection("Get Crystal Badge")
