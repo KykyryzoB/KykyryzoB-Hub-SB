@@ -1358,19 +1358,20 @@ end)
 local Section = Tab:NewSection("Gat S.A.D Sword")
 
 Section:NewButton("Get S.A.D Sword (Sad Noob Badge)", "ButtonInfo", function()
-    local player = game.Players.LocalPlayer
-local badgeId = 2153837216
+    local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+
+local teleportPosition = CFrame.new(23.4632149, 42.36689, -259.350708, -0.0522963554, -0.224042162, 0.973175347, 1.00173445e-07, 0.974508822, 0.224349156, -0.998631597, 0.0117327413, -0.0509632379)
 local originalPosition = player.Character.HumanoidRootPart.Position
-local originalOrientation = player.Character.HumanoidRootPart.Orientation
 
-local function teleportPlayer()
-    local newPosition = Vector3.new(23.4632149, 42.36689, -259.350708)
-    local newOrientation = Vector3.new(-0.0522963554, -0.224042162, 0.973175347)
+-- Телепортация к указанной позиции
+player.Character.HumanoidRootPart.CFrame = teleportPosition
 
-    player.Character.HumanoidRootPart.CFrame = CFrame.new(newPosition, newPosition + newOrientation)
-end
+-- Ждем 2 секунды
+wait(2)
 
-teleportPlayer()
+-- Телепортация обратно на исходную позицию
+player.Character.HumanoidRootPart.CFrame = CFrame.new(originalPosition)
 end)
 
 local Section = Tab:NewSection("Get Duck Badge")
@@ -1382,7 +1383,64 @@ end)
 local Section = Tab:NewSection("Get Master Obby Badge")
 
 Section:NewButton("Get Master Obby Badge (Obby Sword)", "ButtonInfo", function()
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1844.34753, 1084.47949, -388.383881, 0.0595572703, 1.00561493e-07, 0.998224914, 2.36991404e-08, 1, -1.02154289e-07, -0.998224914, 2.97411038e-08, 0.0595572703)
+    local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+
+local teleportPosition = CFrame.new(-1844.34753, 1084.47949, -388.383881, 0.0595572703, 1.00561493e-07, 0.998224914, 2.36991404e-08, 1, -1.02154289e-07, -0.998224914, 2.97411038e-08, 0.0595572703)
+local originalPosition = player.Character.HumanoidRootPart.Position
+
+-- Телепортация к указанной позиции
+player.Character.HumanoidRootPart.CFrame = teleportPosition
+
+-- Ждем 2 секунды
+wait(2)
+
+-- Телепортация обратно на исходную позицию
+player.Character.HumanoidRootPart.CFrame = CFrame.new(originalPosition)
+end)
+
+local Section = Tab:NewSection("Get Magma Badge")
+
+Section:NewToggle("Get Magma Badge (Magma Sword)", "ToggleInfo", function(state)
+    if state then
+        _G.loops = true
+
+while _G.loops == true do wait() -- Вместо wait можно поставить рендер степпед 
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+
+local teleportPart = workspace.MagmaBlock
+local originalPosition = player.Character.HumanoidRootPart.Position
+
+-- Телепортация к объекту "MagmaBlock"
+player.Character.HumanoidRootPart.CFrame = CFrame.new(teleportPart.Position)
+
+-- Ждем 1 секунду
+wait(2)
+
+-- Телепортация обратно на исходную позицию
+player.Character.HumanoidRootPart.CFrame = CFrame.new(originalPosition)
+end
+    else
+        _G.loops = false
+
+while _G.loops == true do wait() -- Вместо wait можно поставить рендер степпед 
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+
+local teleportPart = workspace.MagmaBlock
+local originalPosition = player.Character.HumanoidRootPart.Position
+
+-- Телепортация к объекту "MagmaBlock"
+player.Character.HumanoidRootPart.CFrame = CFrame.new(teleportPart.Position)
+
+-- Ждем 1 секунду
+wait(2)
+
+-- Телепортация обратно на исходную позицию
+player.Character.HumanoidRootPart.CFrame = CFrame.new(originalPosition)
+end
+    end
 end)
 
 end
