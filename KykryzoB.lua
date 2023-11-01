@@ -1379,4 +1379,10 @@ Section:NewButton("Get Duck Badge (Duck Sword)", "ButtonInfo", function()
     fireclickdetector(workspace["Rubber Duck"].ClickDetector)
 end)
 
+local Section = Tab:NewSection("Get Master Obby Badge")
+
+Section:NewButton("Get Master Obby Badge (Obby Sword)", "ButtonInfo", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1844.34753, 1084.47949, -388.383881, 0.0595572703, 1.00561493e-07, 0.998224914, 2.36991404e-08, 1, -1.02154289e-07, -0.998224914, 2.97411038e-08, 0.0595572703)
+end)
+
 end
