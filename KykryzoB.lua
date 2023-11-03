@@ -28,7 +28,7 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHept
 
 if game.PlaceId == 6403373529 then  --- спасибо agurre за то что сказал(а) как делать
 
-local Window = Library.CreateLib("KykypyzoB Hub SB", "RJTheme8")
+local Window = Library.CreateLib("KykypyzoB Hub SB", "Theme")
 
 local Tab = Window:NewTab("INFO")
 
@@ -970,7 +970,7 @@ end
 
 if game.PlaceId == 9431156611 then
 
-local Window = Library.CreateLib("KykypyzoB Hub SR", "RJTheme8")
+local Window = Library.CreateLib("KykypyzoB Hub SR", "Theme")
 
 local Tab = Window:NewTab("INFO")
 
@@ -1130,7 +1130,7 @@ end
 
 if game.PlaceId == 9020359053 then
 
-local Window = Library.CreateLib("KykypyzoB Hub SB Test Server :credit guy that exsitis", "RJTheme8")
+local Window = Library.CreateLib("KykypyzoB Hub SB Test Server :credit guy that exsitis", "Theme")
 
 local Tab = Window:NewTab("INFO")
 
@@ -1170,7 +1170,7 @@ end
 
 if game.PlaceId == 9412268818 then
 
-local Window = Library.CreateLib("KykypyzoB Hub SR Test Server :credit guy that exsitis", "RJTheme8")
+local Window = Library.CreateLib("KykypyzoB Hub SR Test Server :credit guy that exsitis", "Theme")
 
 local Tab = Window:NewTab("INFO")
 
@@ -1210,7 +1210,7 @@ end
 
 if game.PlaceId == 13833961666 then
 
-local Window = Library.CreateLib("KykyryzoB Hub Enternal Bob", "RJTheme3")
+local Window = Library.CreateLib("KykyryzoB Hub Enternal Bob", "Theme")
 
 local Tab = Window:NewTab("Anits")
 
