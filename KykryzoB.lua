@@ -28,7 +28,7 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Giang
 
 if game.PlaceId == 6403373529 then  --- спасибо agurre за то что сказал(а) как делать
 
-local Window = Library.CreateLib("KykypyzoB Hub SB", "DarkTheme")
+local Window = Library.CreateLib("KykyryzoB Hub SB", "Synapse")
 
 local Tab = Window:NewTab("INFO")
 
