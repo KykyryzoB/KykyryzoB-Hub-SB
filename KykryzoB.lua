@@ -24,7 +24,7 @@ block.Position = Vector3.new(-450.2176666, -28161.4883, -2.34852624, 0, 0, -1, 0
 -- Добавляем блок в игровой мир
 block.Parent = game.Workspace
 --------------------------------------------------------------------------------------
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Giangplay/Script/main/Kavo.lua"))()
 
 if game.PlaceId == 6403373529 then  --- спасибо agurre за то что сказал(а) как делать
 
