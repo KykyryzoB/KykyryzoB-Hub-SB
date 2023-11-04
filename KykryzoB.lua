@@ -1,29 +1,3 @@
-local bypass;
-    bypass = hookmetamethod(game, "__namecall", function(method, ...) 
-        if getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.Events.Ban then
-            return
-        elseif getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.Events.AdminGUI then
-            return
-        elseif getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.Events.WS then
-            return
-        elseif getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.Events.WS2 then
-            return
-        end
-        return bypass(method, ...)
-    end)
-----------------------------------------------------------------------
-local bypass;
-    bypass = hookmetamethod(game, "__namecall", function(method, ...) 
-        if getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.Ban then
-            return
-        elseif getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.AdminGUI then
-            return
-        elseif getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.WalkSpeedChanged then
-            return
-        end
-        return bypass(method, ...)
-    end)
------------------------------------------------------------
 -- Создаем новый блок
 local block = Instance.new("Part")
 
@@ -41,6 +15,18 @@ block.Parent = game.Workspace
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Giangplay/Script/main/Kavo.lua"))()
 
 if game.PlaceId == 6403373529 then  --- спасибо agurre за то что сказал(а) как делать
+
+local bypass;
+    bypass = hookmetamethod(game, "__namecall", function(method, ...) 
+        if getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.Ban then
+            return
+        elseif getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.AdminGUI then
+            return
+        elseif getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.WalkSpeedChanged then
+            return
+        end
+        return bypass(method, ...)
+    end)
 
 local Window = Library.CreateLib("KykyryzoB Hub SB", "Synapse")
 
@@ -983,6 +969,20 @@ end)
 end
 
 if game.PlaceId == 9431156611 then
+
+local bypass;
+    bypass = hookmetamethod(game, "__namecall", function(method, ...) 
+        if getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.Events.Ban then
+            return
+        elseif getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.Events.AdminGUI then
+            return
+        elseif getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.Events.WS then
+            return
+        elseif getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.Events.WS2 then
+            return
+        end
+        return bypass(method, ...)
+    end)
 
 local Window = Library.CreateLib("KykypyzoB Hub SR", "DarkTheme")
 
