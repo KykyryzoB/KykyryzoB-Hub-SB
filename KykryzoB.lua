@@ -1112,14 +1112,20 @@ local Tab = Window:NewTab("INFO")
 
 local Section = Tab:NewSection("Creator( if you have bug and idies dm me)")
 
-Section:NewButton("ultramegasuperpuperdupergul", "INFO", function()
-
+Section:NewButton("Click to copy", "INFO", function()
+    setclipboard('ultramegasuperpuperdupergul')
 end)
 
-local Section = Tab:NewSection("Dis Server")
+local Section = Tab:NewSection("Discord Server")
 
-Section:NewButton("https://discord.gg/jAEwCWSUs4", "INFO", function()
-    
+Section:NewButton("Click to copy", "INFO", function()
+    setclipboard('https://discord.gg/jAEwCWSUs4')
+end)
+
+local Section = Tab:NewSection("Destroy Hub")
+
+Section:NewButton("Destroy", "INFO", function()
+    Library:Destroy()
 end)
 
 local Tab = Window:NewTab("Teleport")
@@ -1272,14 +1278,20 @@ local Tab = Window:NewTab("INFO")
 
 local Section = Tab:NewSection("Creator( if you have bug and idies dm me)")
 
-Section:NewButton("ultramegasuperpuperdupergul", "INFO", function()
-
+Section:NewButton("Click to copy", "INFO", function()
+    setclipboard('ultramegasuperpuperdupergul')
 end)
 
-local Section = Tab:NewSection("Dis Server")
+local Section = Tab:NewSection("Discord Server")
 
-Section:NewButton("https://discord.gg/jAEwCWSUs4", "INFO", function()
-    
+Section:NewButton("Click to copy", "INFO", function()
+    setclipboard('https://discord.gg/jAEwCWSUs4')
+end)
+
+local Section = Tab:NewSection("Destroy Hub")
+
+Section:NewButton("Destroy", "INFO", function()
+    Library:Destroy()
 end)
 
 local Tab = Window:NewTab("Home")
@@ -1312,14 +1324,20 @@ local Tab = Window:NewTab("INFO")
 
 local Section = Tab:NewSection("Creator( if you have bug and idies dm me)")
 
-Section:NewButton("ultramegasuperpuperdupergul", "INFO", function()
-
+Section:NewButton("Click to copy", "INFO", function()
+    setclipboard('ultramegasuperpuperdupergul')
 end)
 
-local Section = Tab:NewSection("Dis Server")
+local Section = Tab:NewSection("Discord Server")
 
-Section:NewButton("https://discord.gg/jAEwCWSUs4", "INFO", function()
-    
+Section:NewButton("Click to copy", "INFO", function()
+    setclipboard('https://discord.gg/jAEwCWSUs4')
+end)
+
+local Section = Tab:NewSection("Destroy Hub")
+
+Section:NewButton("Destroy", "INFO", function()
+    Library:Destroy()
 end)
 
 local Tab = Window:NewTab("Home")
@@ -1347,6 +1365,26 @@ end
 if game.PlaceId == 13833961666 then
 
 local Window = Library.CreateLib("KykyryzoB Hub Enternal Bob", "DarkTheme")
+
+local Tab = Window:NewTab("INFO")
+
+local Section = Tab:NewSection("Creator( if you have bug and idies dm me)")
+
+Section:NewButton("Click to copy", "INFO", function()
+    setclipboard('ultramegasuperpuperdupergul')
+end)
+
+local Section = Tab:NewSection("Discord Server")
+
+Section:NewButton("Click to copy", "INFO", function()
+    setclipboard('https://discord.gg/jAEwCWSUs4')
+end)
+
+local Section = Tab:NewSection("Destroy Hub")
+
+Section:NewButton("Destroy", "INFO", function()
+    Library:Destroy()
+end)
 
 local Tab = Window:NewTab("Anits")
 
