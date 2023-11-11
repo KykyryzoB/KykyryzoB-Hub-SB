@@ -375,50 +375,172 @@ end)
 
 local Section = Tab:NewSection("Get inf ingredient (have bug)")
 
-Section:NewButton("Inf Ingrendient  credit crimsonperiastron2", "Combat", function()
-    while game:GetService("RunService").RenderStepped:wait() do
+Section:NewToggle("Get Inf Ingredient(Alchemist)", "ToggleInfo", function(state)
+    if state then
+        _G.loops = true
 
+while _G.loops == true do wait() -- Вместо wait можно поставить рендер степпед 
+    local args = {
+    [1] = "AddItem",
+    [2] = "Blood Rose"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
+------------------------------------------------------------------------------------------------------
 local args = {
     [1] = "AddItem",
-    [2] = "Plane Flower",
+    [2] = "Jade Stone"
 }
 
-local args5 = {
-    [1] = "AddItem",
-    [2] = "Fire Flower",
-    [2] = "Hazel Lily",
-    [2] = "Jade Stone",
-}
-
-local args4 = {
-    [1] = "AddItem",
-    [2] = "Lamp Grass",
-    [2] = "Winter Rose",
-    [2] = "Dark Root",
-}
-
-local args2 = {
-    [1] = "AddItem",
-    [2] = "Lamp Grass",
-    [2] = "Winter Rose",
-    [2] = "Dark Root",
-}
-
-local args3 = {
-    [1] = "AddItem",
-    [2] = "Blue Crystal",
-    [2] = "Elder Wood",
-    [2] = "Autumn Spout",
-}
-
-game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args2))
-game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args3))
-game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args4))
-game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args5))
 game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
+----------------------------------------------------------------------------------------------------
+local args = {
+    [1] = "AddItem",
+    [2] = "Plane Flower"
+}
 
+game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
+----------------------------------------------------------------------------------------------------
+local args = {
+    [1] = "AddItem",
+    [2] = "Lamp Grass"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
+-----------------------------------------------------------------------------------------------------
+local args = {
+    [1] = "AddItem",
+    [2] = "Winter Rose"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
+----------------------------------------------------------------------------------------------------
+local args = {
+    [1] = "AddItem",
+    [2] = "Autumn Sprout"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
+----------------------------------------------------------------------------------------------------
+local args = {
+    [1] = "AddItem",
+    [2] = "Dire Flower"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
+----------------------------------------------------------------------------------------------
+local args = {
+    [1] = "AddItem",
+    [2] = "Dark Root"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
+--------------------------------------------------------------------------------------------
+local args = {
+    [1] = "AddItem",
+    [2] = "Fire Flower"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
+---------------------------------------------------------------------------------------------
+local args = {
+    [1] = "AddItem",
+    [2] = "Mushroom"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
+--------------------------------------------------------------------------------------------
+local args = {
+    [1] = "AddItem",
+    [2] = "Hazel Lily"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
 end
+    else
+        _G.loops = false
+
+while _G.loops == true do wait() -- Вместо wait можно поставить рендер степпед 
+    local args = {
+    [1] = "AddItem",
+    [2] = "Blood Rose"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
+------------------------------------------------------------------------------------------------------
+local args = {
+    [1] = "AddItem",
+    [2] = "Jade Stone"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
+----------------------------------------------------------------------------------------------------
+local args = {
+    [1] = "AddItem",
+    [2] = "Plane Flower"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
+----------------------------------------------------------------------------------------------------
+local args = {
+    [1] = "AddItem",
+    [2] = "Lamp Grass"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
+-----------------------------------------------------------------------------------------------------
+local args = {
+    [1] = "AddItem",
+    [2] = "Winter Rose"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
+----------------------------------------------------------------------------------------------------
+local args = {
+    [1] = "AddItem",
+    [2] = "Autumn Sprout"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
+----------------------------------------------------------------------------------------------------
+local args = {
+    [1] = "AddItem",
+    [2] = "Dire Flower"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
+----------------------------------------------------------------------------------------------
+local args = {
+    [1] = "AddItem",
+    [2] = "Dark Root"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
+--------------------------------------------------------------------------------------------
+local args = {
+    [1] = "AddItem",
+    [2] = "Fire Flower"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
+---------------------------------------------------------------------------------------------
+local args = {
+    [1] = "AddItem",
+    [2] = "Mushroom"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
+--------------------------------------------------------------------------------------------
+local args = {
+    [1] = "AddItem",
+    [2] = "Hazel Lily"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
+end
+    end
 end)
+
 
 local Section = Tab:NewSection("Get Full Kinetik (100 slapped you)")
 
