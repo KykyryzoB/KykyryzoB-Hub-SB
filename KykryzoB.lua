@@ -90,6 +90,208 @@ end
 game:GetService("TeleportService"):Teleport(9412268818)
 end)
 
+local Section = Tab:NewSection("Get inf ingredient (have bug)")
+
+Section:NewToggle("Get Inf Ingredient(Alchemist)", "ToggleInfo", function(state)
+    if state then
+        _G.loops = true
+
+while _G.loops == true do wait() -- Вместо wait можно поставить рендер степпед 
+    local args = {
+    [1] = "AddItem",
+    [2] = "Blood Rose"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
+------------------------------------------------------------------------------------------------------
+local args = {
+    [1] = "AddItem",
+    [2] = "Jade Stone"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
+----------------------------------------------------------------------------------------------------
+local args = {
+    [1] = "AddItem",
+    [2] = "Plane Flower"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
+----------------------------------------------------------------------------------------------------
+local args = {
+    [1] = "AddItem",
+    [2] = "Lamp Grass"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
+-----------------------------------------------------------------------------------------------------
+local args = {
+    [1] = "AddItem",
+    [2] = "Winter Rose"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
+----------------------------------------------------------------------------------------------------
+local args = {
+    [1] = "AddItem",
+    [2] = "Autumn Sprout"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
+----------------------------------------------------------------------------------------------------
+local args = {
+    [1] = "AddItem",
+    [2] = "Dire Flower"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
+----------------------------------------------------------------------------------------------
+local args = {
+    [1] = "AddItem",
+    [2] = "Dark Root"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
+--------------------------------------------------------------------------------------------
+local args = {
+    [1] = "AddItem",
+    [2] = "Fire Flower"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
+---------------------------------------------------------------------------------------------
+local args = {
+    [1] = "AddItem",
+    [2] = "Mushroom"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
+--------------------------------------------------------------------------------------------
+local args = {
+    [1] = "AddItem",
+    [2] = "Hazel Lily"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
+end
+    else
+        _G.loops = false
+
+while _G.loops == true do wait() -- Вместо wait можно поставить рендер степпед 
+    local args = {
+    [1] = "AddItem",
+    [2] = "Blood Rose"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
+------------------------------------------------------------------------------------------------------
+local args = {
+    [1] = "AddItem",
+    [2] = "Jade Stone"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
+----------------------------------------------------------------------------------------------------
+local args = {
+    [1] = "AddItem",
+    [2] = "Plane Flower"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
+----------------------------------------------------------------------------------------------------
+local args = {
+    [1] = "AddItem",
+    [2] = "Lamp Grass"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
+-----------------------------------------------------------------------------------------------------
+local args = {
+    [1] = "AddItem",
+    [2] = "Winter Rose"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
+----------------------------------------------------------------------------------------------------
+local args = {
+    [1] = "AddItem",
+    [2] = "Autumn Sprout"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
+----------------------------------------------------------------------------------------------------
+local args = {
+    [1] = "AddItem",
+    [2] = "Dire Flower"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
+----------------------------------------------------------------------------------------------
+local args = {
+    [1] = "AddItem",
+    [2] = "Dark Root"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
+--------------------------------------------------------------------------------------------
+local args = {
+    [1] = "AddItem",
+    [2] = "Fire Flower"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
+---------------------------------------------------------------------------------------------
+local args = {
+    [1] = "AddItem",
+    [2] = "Mushroom"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
+--------------------------------------------------------------------------------------------
+local args = {
+    [1] = "AddItem",
+    [2] = "Hazel Lily"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
+end
+    end
+end)
+
+local Section = Tab:NewSection("Remove NameTag (Good for video)")
+
+Section:NewToggle("Remove NameTag", "ToggleInfo", function(state)
+    if state then
+        local vis = true
+
+if vis == true then 
+game.Players.LocalPlayer.Character.Head.Nametag.TextLabel.Visible = false
+end
+    else
+        local vis = true
+
+if vis == true then 
+game.Players.LocalPlayer.Character.Head.Nametag.TextLabel.Visible = true
+end
+    end
+end)
+
+local Section = Tab:NewSection("Get Full Kinetik (100 slapped you)")
+
+Section:NewButton("Full Kinetik (Good for Berserk on alt-acc)", "ButtonInfo", function()
+    OGL = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+for i = 1,100 do
+game.ReplicatedStorage.SelfKnockback:FireServer({["Force"] = 0,["Direction"] = Vector3.new(0,0.01,0)})
+wait(0.05)
+end
+end)
+
+local Section = Tab:NewSection("Spawn Retro Obby")
+
+Section:NewButton("Retro Obby(Good for helping)", "Badge", function()
+    game.ReplicatedStorage.Assets.Retro.Parent = game.Workspace
+end)
+
 local Tab = Window:NewTab("Teleport")
 
 local Section = Tab:NewSection("Teleport")
@@ -367,209 +569,6 @@ end
     end
 end)
 
-local Section = Tab:NewSection("Spawn Retro Obby")
-
-Section:NewButton("Retro Obby(Good for helping)", "Badge", function()
-    game.ReplicatedStorage.Assets.Retro.Parent = game.Workspace
-end)
-
-local Section = Tab:NewSection("Get inf ingredient (have bug)")
-
-Section:NewToggle("Get Inf Ingredient(Alchemist)", "ToggleInfo", function(state)
-    if state then
-        _G.loops = true
-
-while _G.loops == true do wait() -- Вместо wait можно поставить рендер степпед 
-    local args = {
-    [1] = "AddItem",
-    [2] = "Blood Rose"
-}
-
-game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
-------------------------------------------------------------------------------------------------------
-local args = {
-    [1] = "AddItem",
-    [2] = "Jade Stone"
-}
-
-game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
-----------------------------------------------------------------------------------------------------
-local args = {
-    [1] = "AddItem",
-    [2] = "Plane Flower"
-}
-
-game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
-----------------------------------------------------------------------------------------------------
-local args = {
-    [1] = "AddItem",
-    [2] = "Lamp Grass"
-}
-
-game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
------------------------------------------------------------------------------------------------------
-local args = {
-    [1] = "AddItem",
-    [2] = "Winter Rose"
-}
-
-game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
-----------------------------------------------------------------------------------------------------
-local args = {
-    [1] = "AddItem",
-    [2] = "Autumn Sprout"
-}
-
-game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
-----------------------------------------------------------------------------------------------------
-local args = {
-    [1] = "AddItem",
-    [2] = "Dire Flower"
-}
-
-game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
-----------------------------------------------------------------------------------------------
-local args = {
-    [1] = "AddItem",
-    [2] = "Dark Root"
-}
-
-game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
---------------------------------------------------------------------------------------------
-local args = {
-    [1] = "AddItem",
-    [2] = "Fire Flower"
-}
-
-game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
----------------------------------------------------------------------------------------------
-local args = {
-    [1] = "AddItem",
-    [2] = "Mushroom"
-}
-
-game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
---------------------------------------------------------------------------------------------
-local args = {
-    [1] = "AddItem",
-    [2] = "Hazel Lily"
-}
-
-game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
-end
-    else
-        _G.loops = false
-
-while _G.loops == true do wait() -- Вместо wait можно поставить рендер степпед 
-    local args = {
-    [1] = "AddItem",
-    [2] = "Blood Rose"
-}
-
-game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
-------------------------------------------------------------------------------------------------------
-local args = {
-    [1] = "AddItem",
-    [2] = "Jade Stone"
-}
-
-game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
-----------------------------------------------------------------------------------------------------
-local args = {
-    [1] = "AddItem",
-    [2] = "Plane Flower"
-}
-
-game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
-----------------------------------------------------------------------------------------------------
-local args = {
-    [1] = "AddItem",
-    [2] = "Lamp Grass"
-}
-
-game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
------------------------------------------------------------------------------------------------------
-local args = {
-    [1] = "AddItem",
-    [2] = "Winter Rose"
-}
-
-game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
-----------------------------------------------------------------------------------------------------
-local args = {
-    [1] = "AddItem",
-    [2] = "Autumn Sprout"
-}
-
-game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
-----------------------------------------------------------------------------------------------------
-local args = {
-    [1] = "AddItem",
-    [2] = "Dire Flower"
-}
-
-game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
-----------------------------------------------------------------------------------------------
-local args = {
-    [1] = "AddItem",
-    [2] = "Dark Root"
-}
-
-game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
---------------------------------------------------------------------------------------------
-local args = {
-    [1] = "AddItem",
-    [2] = "Fire Flower"
-}
-
-game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
----------------------------------------------------------------------------------------------
-local args = {
-    [1] = "AddItem",
-    [2] = "Mushroom"
-}
-
-game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
---------------------------------------------------------------------------------------------
-local args = {
-    [1] = "AddItem",
-    [2] = "Hazel Lily"
-}
-
-game:GetService("ReplicatedStorage"):WaitForChild("AlchemistEvent"):FireServer(unpack(args))
-end
-    end
-end)
-
-
-local Section = Tab:NewSection("Get Full Kinetik (100 slapped you)")
-
-Section:NewButton("Full Kinetik (Good for Berserk on alt-acc)", "ButtonInfo", function()
-    OGL = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-for i = 1,100 do
-game.ReplicatedStorage.SelfKnockback:FireServer({["Force"] = 0,["Direction"] = Vector3.new(0,0.01,0)})
-wait(0.05)
-end
-end)
-
-local Section = Tab:NewSection("Remove NameTag (Good for video)")
-
-Section:NewToggle("Remove NameTag", "ToggleInfo", function(state)
-    if state then
-        local vis = true
-
-if vis == true then 
-game.Players.LocalPlayer.Character.Head.Nametag.TextLabel.Visible = false
-end
-    else
-        local vis = true
-
-if vis == true then 
-game.Players.LocalPlayer.Character.Head.Nametag.TextLabel.Visible = true
-end
-    end
-end)
-
 
 local Tab = Window:NewTab("Antis")
 
@@ -761,7 +760,7 @@ local block = Instance.new("Part")
 
 -- Настройки блока
 block.Name = "AntiVoidRetro6"
-block.Size = Vector3.new(500, 3, 150) -- Размер блока (можно изменить на нужные значения)
+block.Size = Vector3.new(460, 3, 150) -- Размер блока (можно изменить на нужные значения)
 block.Transparency = 0.5 -- Прозрачность блока (1 = полностью прозрачный)
 block.CanCollide = true -- Блок не будет взаимодействовать с другими объектами
 block.Anchored = true -- Блок будет закреплен на месте
