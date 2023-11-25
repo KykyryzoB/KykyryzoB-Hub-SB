@@ -65,7 +65,15 @@ if teleportFunc then
         game:GetService("RunService").RenderStepped:Connect(function()
             game:GetService("GuiService"):ClearError()
         end)
+game.CoreGui.RobloxLoadingGUI:Destroy()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/KykyryzoB/KykyryzoB-Hub-SB/main/KykryzoB.lua"))()
+spawn(function()
+    while true do
+        game:GetService("GuiService"):ClearError()
+        game.CoreGui.RobloxLoadingGUI:Destroy()
+        wait(1)
+    end
+end)
     ]])
 end
 game:GetService("TeleportService"):Teleport(9020359053)
@@ -84,7 +92,15 @@ if teleportFunc then
         game:GetService("RunService").RenderStepped:Connect(function()
             game:GetService("GuiService"):ClearError()
         end)
+game.CoreGui.RobloxLoadingGUI:Destroy()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/KykyryzoB/KykyryzoB-Hub-SB/main/KykryzoB.lua"))()
+spawn(function()
+    while true do
+        game:GetService("GuiService"):ClearError()
+        game.CoreGui.RobloxLoadingGUI:Destroy()
+        wait(1)
+    end
+end)
     ]])
 end
 game:GetService("TeleportService"):Teleport(9412268818)
@@ -1383,6 +1399,39 @@ local Section = Tab:NewSection("FreeCam(Mobile)")
 
 Section:NewButton("FreeCam(Mobile)", "Home", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/0Ben1/fe/main/Freecam", true))()
+end)
+
+local Section = Tab:NewSection("Dark Dex")
+
+Section:NewButton("Dark Dex", "Home", function()
+    loadstring(game:HttpGet("https://cdn.wearedevs.net/scripts/Dex%20Explorer.txt"))()
+end)
+
+local Section = Tab:NewSection("ReJoin")
+
+Section:NewButton("ReJoin", "Home", function()
+    local teleportFunc = queueonteleport or queue_on_teleport or syn and syn.queue_on_teleport
+if teleportFunc then
+    teleportFunc([[
+        if not game:IsLoaded() then
+            game.Loaded:Wait()
+        end
+        repeat wait() until game.Players.LocalPlayer
+        game:GetService("RunService").RenderStepped:Connect(function()
+            game:GetService("GuiService"):ClearError()
+        end)
+game.CoreGui.RobloxLoadingGUI:Destroy()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/KykyryzoB/KykyryzoB-Hub-SB/main/KykryzoB.lua"))()
+spawn(function()
+    while true do
+        game:GetService("GuiService"):ClearError()
+        game.CoreGui.RobloxLoadingGUI:Destroy()
+        wait(1)
+    end
+end)
+    ]])
+end
+game:GetService("TeleportService"):Teleport(9412268818)
 end)
 
 end
