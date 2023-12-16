@@ -328,6 +328,8 @@ Section:NewToggle("Mitten And SnowBall farm", "ToggleInfo", function(state)
 while _G.loops == true do
 for i,v in pairs(game.Workspace:GetChildren()) do
 if v.Name == "Gift" then
+    workspace.Gift.CanCollide = false
+    wait(1)
 workspace.Gift.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
 end
 end
