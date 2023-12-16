@@ -323,37 +323,26 @@ local Section = Tab:NewSection("Mitten And SnowBall farm")
 
 Section:NewToggle("Mitten And SnowBall farm", "ToggleInfo", function(state)
     if state then
-        local workspace = game:GetService("Workspace")
-local arena = workspace.Arena
-local christmas = arena.Christmas
-
-local gifts = christmas:GetChildren()[10]
-
-if gifts then
-    gifts:Destroy()
-    print("Gifts удалены успешно!")
-else
-    print("Гифты не найдены.")
-end
-_G.loops = true
+        _G.loops = true
 
 while _G.loops == true do
 for i,v in pairs(game.Workspace:GetChildren()) do
 if v.Name == "Gift" then
-v.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+workspace.Gift.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
 end
 end
 task.wait()
 end
     else
-        _G.loops = false
+        _G.loops = true
 
-while _G.loops == true do wait(3)
-for i,v in pairs(game:GetDescendants()) do
-if v.Name == 'Gift' then
-v.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+while _G.loops == true do
+for i,v in pairs(game.Workspace:GetChildren()) do
+if v.Name == "Gift" then
+workspace.Gift.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
 end
 end
+task.wait()
 end
     end
 end)
