@@ -334,7 +334,7 @@ end
 task.wait()
 end
     else
-        _G.loops = true
+        _G.loops = false
 
 while _G.loops == true do
 for i,v in pairs(game.Workspace:GetChildren()) do
