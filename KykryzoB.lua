@@ -2349,31 +2349,3 @@ fireclickdetector(workspace:GetChildren()[13].Handle.ClickDetector)
 end)
 
 end
-
-if game:PlaceId == 15507333474 then
-
-local Window = Library.CreateLib("KykyryzoB Hub CRISMAST EVENT", "Synapse")
-
-local Tab = Window:NewTab("INFO")
-
-local Section = Tab:NewSection("Creator( if you have bug and idies dm me)")
-
-Section:NewButton("Click to copy", "INFO", function()
-    setclipboard('ultramegasuperpuperdupergul')
-end)
-
-local Section = Tab:NewSection("Discord Server")
-
-Section:NewButton("Click to copy", "INFO", function()
-    setclipboard('https://discord.gg/jAEwCWSUs4')
-end)
-
-local Section = Tab:NewSection("Destroy Hub")
-
-Section:NewButton("Destroy", "INFO", function()
-    Library:Destroy()
-end)
-
-local Tab = Window:NewTab("")
-
-end
