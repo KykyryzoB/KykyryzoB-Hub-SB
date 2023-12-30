@@ -1704,6 +1704,20 @@ Section:NewSlider("Player Gravity", "SliderInfo", 500, 0, function(s) -- 500 (М
     workspace.Gravity = s
 end)
 
+local Tab = Window:NewTab("Others Hub")
+
+local Section = Tab:NewSection("Guy that exsits hub")
+
+Section:NewButton("Hub that exsits", "Others Hub", function()
+    loadstring(game:HttpGet(("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Slap%20Battles")))()
+end)
+
+local Section = Tab:NewSection("Inf Yield")
+
+Section:NewButton("Infite Yield", "Others Hub", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
+
 end
 
 if game.PlaceId == 9020359053 then
