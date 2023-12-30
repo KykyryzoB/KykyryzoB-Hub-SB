@@ -1482,6 +1482,72 @@ Section:NewButton("Destroy", "INFO", function()
     Library:Destroy()
 end)
 
+local Tab = Window:NewTab("Combat")
+
+local Section = Tab:NewSection("Slap Aura")
+
+Section:NewToggle("Slap Aura", "ToggleInfo", function(state)
+    if state then
+        _G.slapAurasr = true
+
+while _G.slapAurasr == true do wait()
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local NearbyPlayers = {}
+
+for _, player in ipairs(Players:GetPlayers()) do
+    if player ~= LocalPlayer then
+        local character = player.Character
+        if character and character:FindFirstChild("Head") then
+            local distance = (LocalPlayer.Character.Head.Position - character.Head.Position).magnitude
+            if distance <= 25 then  -- обновлено условие для радиуса 25 и меньше
+                table.insert(NearbyPlayers, player)
+            end
+        end
+    end
+end
+
+if #NearbyPlayers > 0 then
+    for _, player in ipairs(NearbyPlayers) do
+        local args = {
+            [1] = player.Character.Head
+        }
+        game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Slap"):FireServer(unpack(args))
+    end
+end
+end
+    else
+        _G.slapAurasr = false
+
+while _G.slapAurasr == true do wait()
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local NearbyPlayers = {}
+
+for _, player in ipairs(Players:GetPlayers()) do
+    if player ~= LocalPlayer then
+        local character = player.Character
+        if character and character:FindFirstChild("Head") then
+            local distance = (LocalPlayer.Character.Head.Position - character.Head.Position).magnitude
+            if distance <= 25 then  -- обновлено условие для радиуса 25 и меньше
+                table.insert(NearbyPlayers, player)
+            end
+        end
+    end
+end
+
+if #NearbyPlayers > 0 then
+    for _, player in ipairs(NearbyPlayers) do
+        local args = {
+            [1] = player.Character.Head
+        }
+        game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Slap"):FireServer(unpack(args))
+    end
+end
+end
+    end
+end)
+
 local Tab = Window:NewTab("Teleport")
 
 local Section = Tab:NewSection("Teleport (can kicked)")
@@ -1578,6 +1644,22 @@ local objects = game:GetService("Workspace"):GetDescendants()
 for _, object in ipairs(objects) do
     -- Проверяем, является ли имя объекта "Acid"
     if object.Name == "Acid" then
+        -- Удаляем объект
+        object:Destroy()
+    end
+end
+end)
+
+local Section = Tab:NewSection("Remove Lava")
+
+Section:NewButton("Remove Lava", "Remove", function()
+        -- Получаем все объекты в игре
+local objects = game:GetService("Workspace"):GetDescendants()
+
+-- Проходимся по каждому объекту
+for _, object in ipairs(objects) do
+    -- Проверяем, является ли имя объекта "Acid"
+    if object.Name == "Lava" then
         -- Удаляем объект
         object:Destroy()
     end
