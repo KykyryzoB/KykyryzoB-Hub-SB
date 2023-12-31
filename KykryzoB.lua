@@ -334,6 +334,16 @@ end)
 
 local Tab = Window:NewTab("Badge")
 
+local Section = Tab:NewSection("Get Ice Skate")
+
+Section:NewButton("Get Redacter", "Badge", function()
+    local args = {
+    [1] = "Freeze"
+}
+
+game:GetService("ReplicatedStorage").IceSkate:FireServer(unpack(args))
+end)
+
 local Section = Tab:NewSection("Get Redacted (Need 5k slaps)")
 
 Section:NewButton("Get Redacter", "Badge", function()
