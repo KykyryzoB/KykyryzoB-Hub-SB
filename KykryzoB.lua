@@ -26,7 +26,7 @@ local bypass;
         return bypass(method, ...)
     end)
 
-local Window = Library.CreateLib("Kykypyz0 Hub | Slap Battles", "DarkTheme")
+local Window = Library.CreateLib("Kykyryz0 Hub | Slap Battles", "DarkTheme")
 
 local Tab = Window:NewTab("INFO")
 
@@ -956,7 +956,8 @@ end)
 
 
 Library:ToggleUIGui({
-      Icons = "rbxassetid://7733715400"
+      Icons = "rbxassetid://7733715400",
+      Rainbow = true
 })
 
 elseif game.PlaceId == 9431156611 then
@@ -977,7 +978,7 @@ elseif game.PlaceId == 9431156611 then
         return bypass(method, ...)
     end)
 
-local Window = Library.CreateLib("Kykypyz0 Hub | Slap Royale", "DarkTheme")
+local Window = Library.CreateLib("Kykyryz0 Hub | Slap Royale", "DarkTheme")
 
 local Tab = Window:NewTab("INFO")
 
@@ -1015,31 +1016,29 @@ local Tab = Window:NewTab("Combat")
 
 local Section = Tab:NewSection("Auto Win(On Slap Aura and remove Acid,Lava)")
 
-Section:NewButton("Auto Win", "мороз гей", function()
-        _G.autowinsr = true
-
-while _G.autowinsr do
-    if game.Players.LocalPlayer.Character:WaitForChild("inMatch").Value then
+Section:NewButton("Auto Win", "Auto Win", function()
+    if game.Players.LocalPlayer.Character:WaitForChild("inMatch").Value == true then
         for _, v in pairs(game.Players:GetPlayers()) do
             if v ~= game.Players.LocalPlayer and v.Character and v.Character:FindFirstChild("Humanoid") then
                 if v.Character:FindFirstChild("HumanoidRootPart") then
-                    while v.Character:IsDescendantOf(workspace) and v.Character.Humanoid.Health > 1 do
+                    while v.Character.Ragdolled.Value == false and v.Character.Humanoid.Health > 1 do
                         wait(0.1)
                         local tweenService = game:GetService("TweenService")
-                        local tweenInfo = TweenInfo.new(.5, Enum.EasingStyle.Linear)
+                        local tweenInfo = TweenInfo.new(1, Enum.EasingStyle.Linear, Enum.EasingDirection.In)
                         local tween = tweenService:Create(
                             game:GetService("Players").LocalPlayer.Character.HumanoidRootPart,
                             tweenInfo,
                             {CFrame = v.Character.HumanoidRootPart.CFrame * CFrame.new(0, 2, 0)}
                         )
                         tween:Play()
-                        wait(0.25)
+                        wait()
                     end
                 end
             end
         end
+    else
+        game:GetService("StarterGui"):SetCore("SendNotification",{Title = "Error",Text = "Wait For Match Started.",Icon = "rbxassetid://7733658504",Duration = 1})
     end
-end
 end)
 
 local Section = Tab:NewSection("Slap Aura")
@@ -1049,28 +1048,9 @@ Section:NewToggle("Slap Aura", "ToggleInfo", function(state)
         _G.slapAurasr = true
 
 while _G.slapAurasr == true do wait()
-local Players = game:GetService("Players")
-local LocalPlayer = Players.LocalPlayer
-local NearbyPlayers = {}
-
-for _, player in ipairs(Players:GetPlayers()) do
-    if player ~= LocalPlayer then
-        local character = player.Character
-        if character and character:FindFirstChild("Head") then
-            local distance = (LocalPlayer.Character.Head.Position - character.Head.Position).magnitude
-            if distance <= 25 then  
-                table.insert(NearbyPlayers, player)
-            end
-        end
-    end
-end
-
-if #NearbyPlayers > 0 then
-    for _, player in ipairs(NearbyPlayers) do
-        local args = {
-            [1] = player.Character.Head
-        }
-        game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Slap"):FireServer(unpack(args))
+for i,v in pairs(game.Players:GetChildren()) do
+    if v ~= game.Players.LocalPlayer and v.Character and v.Character:FindFirstChild("HumanoidRootPart") then
+        game.ReplicatedStorage.Events.Slap:FireServer(v.Character:WaitForChild("HumanoidRootPart"))
     end
 end
 end
@@ -1078,33 +1058,8 @@ end
         _G.slapAurasr = false
 
 while _G.slapAurasr == true do wait()
-                if game.Players.LocalPlayer.Character:WaitForChild("inMatch").Value == true then
-local Players = game:GetService("Players")
-local LocalPlayer = Players.LocalPlayer
-local NearbyPlayers = {}
-
-for _, player in ipairs(Players:GetPlayers()) do
-    if player ~= LocalPlayer then
-        local character = player.Character
-        if character and character:FindFirstChild("Head") then
-            local distance = (LocalPlayer.Character.Head.Position - character.Head.Position).magnitude
-            if distance <= 25 then  
-                table.insert(NearbyPlayers, player)
-            end
-        end
-    end
+print("1231")
 end
-
-if #NearbyPlayers > 0 then
-    for _, player in ipairs(NearbyPlayers) do
-        local args = {
-            [1] = player.Character.Head
-        }
-        game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Slap"):FireServer(unpack(args))
-    end
-end
-end
-                    end
     end
 end)
 
@@ -1278,33 +1233,69 @@ end)
 
 local Tab = Window:NewTab("Misc")
 
-local Section = Tab:NewSection("Get All Items | NOT WORKING")
+local Section = Tab:NewSection("Items")
 
-Section:NewToggle("Get All Items | NOT WORKING", "Misc", function(state)
-    if state then
-        _G.GetItems = true
-
-        while _G.GetItems == true do wait(0.2)
-            if game.Players.LocalPlayer.Character:WaitForChild("inMatch").Value == true then
-                for _, v in ipairs(game.Workspace.Items:GetChildren()) do
-                    if v:IsA("Tool") and v:FindFirstChild("Handle") then
-                        game:GetService("ReplicatedStorage").Events.Item:FireServer(v.Handle)
-                    end
-                end
+Section:NewButton("Get All Items | WORKING", "Misc", function()
+    if game.Players.LocalPlayer.Character.inMatch.Value == true then
+        for i, v in ipairs(game.Workspace.Items:GetChildren()) do
+            if v.ClassName == "Tool" and v:FindFirstChild("Handle") then
+                v.Handle.Anchored = false
+                v.Handle.CFrame = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame
+                game:GetService("Players").LocalPlayer.Character.Humanoid:EquipTool(v)
+                game.Players.LocalPlayer.Character.Humanoid:UnequipTools()
             end
-        task.wait()
         end
     else
-        _G.GetItems = false
+        game:GetService("StarterGui"):SetCore("SendNotification",{Title = "Error",Text = "Wait For Match Started.",Icon = "rbxassetid://7733658504",Duration = 5})
+    end
+end)
 
-        while _G.GetItems == true do wait(0.2)
-            print(12)
-        task.wait()
+Section:NewToggle("Auto Use Items (if off you can get kicked)", "Misc", function(state)
+    if state then
+        _G.autoitems = true
+
+        while _G.autoitems == true do task.wait()
+            for i, v in ipairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+                if v.ClassName == "Tool" and not (v.Name == "Witch" or v.Name == "Void" or v.Name == "Vigorous" or v.Name == "Vampire" or v.Name == "Thundercaller" or v.Name == "Tank" or v.Name == "Revenge" or v.Name == "Pow" or v.Name == "Pack-A-Punch" or v.Name == "Missile-Launcher" or v.Name == "KABOOM" or v.Name == "Juggernaut" or v.Name == "Glacier" or v.Name == "Faculty" or v.Name == "Cannoneer" or v.Name == "Aquarius" or v.Name == "Aerialist") then
+                    v:Activate()
+                end
+            end
+        end
+    else
+        _G.autoitems = false
+
+        while _G.autoitems == true do task.wait()
+            print("12123")
         end
     end
 end)
 
-local Section = Tab:NewSection("Item Esp")
+Section:NewButton("Use Items", "Misc", function()
+    for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+        if v.Name == "Bull's essence" or v.Name == "Potion of Strength" or v.Name == "Boba" or v.Name == "Speed Potion" or v.Name == "Frog Potion" or v.Name == "Strength Brew" or v.Name == "Frog Brew" or v.Name == "Speed Brew" then
+            game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+            v:Activate()
+        end
+    end
+end)
+
+Section:NewButton("Get 250 Power", "Misc", function()
+    for i = 1, 2 do
+game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack["True Power"])
+game.Players.LocalPlayer.Character["True Power"]:Activate()
+end
+end)
+
+Section:NewButton("Bomb Bus", "Bomb Bus", function()
+    for i, v in ipairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+        if v.Name == "Bomb" then
+            game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+            v:Activate()
+        end
+    end
+end)
+
+local Section = Tab:NewSection("Esp")
 
 Section:NewToggle("Item Esp", "Misc", function(state)
     if state then
@@ -1352,9 +1343,7 @@ Section:NewToggle("Item Esp", "Misc", function(state)
     end
 end)
 
-local Section = Tab:NewSection("Esp")
-
-Section:NewToggle("Esp", "Misc", function(state)
+Section:NewToggle("Esp Players", "Misc", function(state)
     if state then
         _G.espSR = true
 
@@ -1594,26 +1583,6 @@ wait(0.25)
 fireclickdetector(game.Workspace.Map.OriginOffice.Door.Keypad.Buttons.Enter.ClickDetector)
 end)
 
-local Section = Tab:NewSection("Get 250 Power (Need 2 True Power)")
-
-Section:NewButton("Get 250 Power", "Misc", function()
-    for i = 1, 2 do
-game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack["True Power"])
-game.Players.LocalPlayer.Character["True Power"]:Activate()
-end
-end)
-
-local Section = Tab:NewSection("Use Items")
-
-Section:NewButton("Use Items", "Misc", function()
-    for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-        if v.Name == "Bull's essence" or v.Name == "Potion of Strength" or v.Name == "Boba" or v.Name == "Speed Potion" or v.Name == "Frog Potion" or v.Name == "Strength Brew" or v.Name == "Frog Brew" or v.Name == "Speed Brew" or v.Name == "Cube of Ice" then
-            game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
-            v:Activate()
-        end
-    end
-end)
-
 local Section = Tab:NewSection("Leave Bus")
 
 Section:NewButton("Leave Bus", "Misc", function()
@@ -1667,14 +1636,15 @@ Section:NewButton("Infite Yield", "Others Hub", function()
 end)
 
 Library:ToggleUIGui({
-      Icons = "rbxassetid://7733715400"
+      Icons = "rbxassetid://7733715400",
+      Rainbow = true
 })
 
 elseif game.PlaceId == 9020359053 then
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Giangplay/Script/main/Kavo.lua"))()
 game:GetService("StarterGui"):SetCore("SendNotification",{Title = "Welcome!",Text = "Welcome to Hub Kykyryz0B.",Icon = "rbxassetid://7733960981",Duration = 10})
 
-    local Window = Library.CreateLib("Kykypyz0B Hub | SB Test Server", "DarkTheme")
+    local Window = Library.CreateLib("Kykyryz0B Hub | SB Test Server", "DarkTheme")
 
 local Tab = Window:NewTab("INFO")
 
@@ -1788,14 +1758,15 @@ game:GetService("TeleportService"):Teleport(9412268818)
 end)
 
 Library:ToggleUIGui({
-      Icons = "rbxassetid://7733715400"
+      Icons = "rbxassetid://7733715400",
+      Rainbow = true
 })
 
 elseif game.PlaceId == 9412268818 then
     local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Giangplay/Script/main/Kavo.lua"))()
     game:GetService("StarterGui"):SetCore("SendNotification",{Title = "Welcome!",Text = "Welcome to Hub Kykyryz0B.",Icon = "rbxassetid://7733960981",Duration = 10})
 
-    local Window = Library.CreateLib("Kykypyz0B Hub | SR Test Server", "DarkTheme")
+    local Window = Library.CreateLib("Kykyryz0B Hub | SR Test Server", "DarkTheme")
 
 local Tab = Window:NewTab("INFO")
 
@@ -1909,7 +1880,8 @@ game:GetService("TeleportService"):Teleport(9020359053)
 end)
 
 Library:ToggleUIGui({
-      Icons = "rbxassetid://7733715400"
+      Icons = "rbxassetid://7733715400",
+      Rainbow = true
 })
 
 elseif game.PlaceId == 13833961666 then
@@ -2111,7 +2083,8 @@ Section:NewSlider("Gravity Hack", "SliderInfo", 500, 0, function(s)
 end)
 
 Library:ToggleUIGui({
-      Icons = "rbxassetid://7733715400"
+      Icons = "rbxassetid://7733715400",
+      Rainbow = true
 })
 
 elseif game.PlaceId == 11828384869 then
@@ -2460,7 +2433,8 @@ end)
 
 
 Library:ToggleUIGui({
-      Icons = "rbxassetid://7733715400"
+      Icons = "rbxassetid://7733715400",
+      Rainbow = true
 })
 
 elseif game.PlaceId == 14422118326 then
@@ -2586,7 +2560,8 @@ end)
 
 
 Library:ToggleUIGui({
-      Icons = "rbxassetid://7733715400"
+      Icons = "rbxassetid://7733715400",
+      Rainbow = true
 })
 
 elseif game.PlaceId == 15507333474 then
@@ -2749,7 +2724,8 @@ end)
 
 
 Library:ToggleUIGui({
-      Icons = "rbxassetid://7733715400"
+      Icons = "rbxassetid://7733715400",
+      Rainbow = true
 })
 
 elseif game.PlaceId == 16034567693 then
@@ -2851,10 +2827,11 @@ game:GetService("StarterGui"):SetCore("SendNotification",{Title = "Click",Text =
 end)
 
 Library:ToggleUIGui({
-      Icons = "rbxassetid://7733715400"
+      Icons = "rbxassetid://7733715400",
+      Rainbow = true
 })
 
 else
-    game:GetService("StarterGui"):SetCore("SendNotification",{Title = "Error",Text = "You're in the wrong game.",Icon = "rbxassetid://7733658504",Duration = 1})
+    game:GetService("StarterGui"):SetCore("SendNotification",{Title = "Error",Text = "You're in the wrong game.",Icon = "rbxassetid://7733658504",Duration = 5})
 
 end
