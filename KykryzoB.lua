@@ -1,12 +1,12 @@
 local Debris = game:GetService("Debris")
 
 local vSOafmfmdkgu92 = Instance.new("BoolValue", workspace)
-vSOafmfmdkgu92.Name = "A(*sfkVOXULSAAW2"
+vSOafmfmdkgu92.Name = "A(*sfkchmoryzobSAAW2"
 vSOafmfmdkgu92.Value = true
 Debris:AddItem(vSOafmfmdkgu92, 3)
 
 local vSOafmfmdkgu93 = Instance.new("BoolValue", workspace)
-vSOafmfmdkgu93.Name = "A(*VOXUSNFakA@"
+vSOafmfmdkgu93.Name = "A(*chmoryzobNFakA@"
 vSOafmfmdkgu93.Value = true
 Debris:AddItem(vSOafmfmdkgu93, 2)
 
