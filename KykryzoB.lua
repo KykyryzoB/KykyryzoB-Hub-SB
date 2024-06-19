@@ -100,6 +100,70 @@ if game.PlaceId == 6403373529 then
     wait(0.1)
     end
     end)
+
+    local Section = Tab:NewSection("Spam Retro Ability")
+
+    Section:NewDropdown("Choose Ability", "All Glove", {"Ban Hammer", "Bomb", "Rocket Launcher"}, function(currentOption)
+        spamretroab = currentOption
+    end)
+
+    Section:NewToggle("Spam Retro", "All Glove", function(state)
+        getgenv().spamretro = state
+        while getgenv().spamretro do
+            if spamretroab == "Ban Hammer" then
+                local args = {
+                    [1] = "Ban Hammer"
+                }
+
+                game:GetService("ReplicatedStorage"):WaitForChild("RetroAbility"):FireServer(unpack(args))
+            elseif spamretroab == "Bomb" then
+                local args = {
+                    [1] = "Bomb"
+                }
+
+                game:GetService("ReplicatedStorage"):WaitForChild("RetroAbility"):FireServer(unpack(args))
+            elseif spamretroab == "Rocket Launcher" then
+                local args = {
+                    [1] = "Rocket Launcher"
+                }
+
+                game:GetService("ReplicatedStorage"):WaitForChild("RetroAbility"):FireServer(unpack(args))
+            end
+        task.wait(0.2)
+        end
+    end)
+
+    local Section = Tab:NewSection("Spam Admin Ability")
+
+    Section:NewDropdown("Choose Ability", "All Glove", {"Anvil", "Fling", "Invisibility"}, function(currentOption)
+        spamadminab = currentOption
+    end)
+
+    Section:NewToggle("Spam Admin", "All Glove", function(state)
+        getgenv().spamadmin = state
+        while getgenv().spamadmin do
+            if spamadminab == "Anvil" then
+                local args = {
+                    [1] = "Anvil"
+                }
+
+                game:GetService("ReplicatedStorage"):WaitForChild("AdminAbility"):FireServer(unpack(args))
+            elseif spamadminab == "Fling" then
+                local args = {
+                    [1] = "Fling"
+                }
+
+                game:GetService("ReplicatedStorage"):WaitForChild("AdminAbility"):FireServer(unpack(args))
+            elseif spamadminab == "Invisibility" then
+                local args = {
+                    [1] = "Invisiblity"
+                }
+
+                game:GetService("ReplicatedStorage"):WaitForChild("AdminAbility"):FireServer(unpack(args))
+            end
+        task.wait(0.2)
+        end
+    end)
     
     local Section = Tab:NewSection("Spam Null")
     
@@ -295,7 +359,7 @@ if game.PlaceId == 6403373529 then
       elseif abc == "Slapples Isl" then
       game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Arena.island5.Union.CFrame
      elseif abc == "Moai Isl" then
-     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Arena.island4["Big Tree"].Bark.CFrame
+     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Arena.island4["Big Tree"].Bark.CFrame * CFrame.new(3. -4, 0)
     elseif abc == "Plate" then
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Arena.Plate.CFrame
     elseif abc == "Battle Arena" then
@@ -462,6 +526,58 @@ end
     end)
     
     local Tab = Window:NewTab("Badge")
+
+    local Section = Tab:NewSection("Get The Schlob Glove")
+
+    Section:NewButton("Get The Schlob Glove", "Need Cloud", function()
+        if game.Players.LocalPlayer.leaderstats.Glove.Value == "Cloud" and not game.Players.LocalPlayer.Character:FindFirstChild("entered") then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-120.539459, 133.998047, -444.654419)
+            wait(0.1)
+            game:GetService("ReplicatedStorage").CloudAbility:FireServer()
+            fireclickdetector(game.workspace.Lobby.fish.ClickDetector)
+            repeat task.wait() firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1.TouchInterest.Parent, 0) firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1.TouchInterest.Parent, 1)
+            until game.Players.LocalPlayer.Character:FindFirstChild("entered")
+            if game.Players.LocalPlayer.Character.Humanoid.Sit == false then
+                for i,v in pairs(game.Workspace:GetChildren()) do
+                    if v.Name == game.Players.LocalPlayer.Name.."_Cloud" and v:FindFirstChild("VehicleSeat") then
+                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.VehicleSeat.CFrame
+                        wait(0.3)
+                        game:GetService("ReplicatedStorage"):WaitForChild("GeneralAbility"):FireServer()
+                        wait(0.3)
+                        repeat task.wait() game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Arena.Plate.CFrame
+                        until game.Players.LocalPlayer.Character.Ragdolled.Value == false
+                    end
+                end
+            else
+                wait(0.3)
+                game:GetService("ReplicatedStorage"):WaitForChild("GeneralAbility"):FireServer()
+                wait(0.3)
+                repeat task.wait() game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Arena.Plate.CFrame
+                until game.Players.LocalPlayer.Character.Ragdolled.Value == false
+            end
+        else
+            game:GetService("StarterGui"):SetCore("SendNotification",{Title = "Error",Text = "Need Cloud Glove And Located in the Lobby",Icon = "rbxassetid://7733658504",Duration = 10})
+        end
+    end)
+
+    local Section = Tab:NewSection("Get Bomb Glove")
+    
+    Section:NewButton("Get Bomb Glove", "Need Warp and located in arena", function()
+        if game.Players.LocalPlayer.leaderstats.Glove.Value == "Warp" and game.Players.LocalPlayer.Character:FindFirstChild("entered") then
+            local players = game.Players:GetChildren()
+            local RandomPlayer = players[math.random(1, #players)]
+            repeat RandomPlayer = players[math.random(1, #players)] until RandomPlayer ~= game.Players.LocalPlayer and RandomPlayer.Character:FindFirstChild("entered") and RandomPlayer.Character:FindFirstChild("Ragdolled").Value == false
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = RandomPlayer.Character:FindFirstChild("HumanoidRootPart").CFrame
+            wait(0.3)
+            game.ReplicatedStorage.WarpHt:FireServer(RandomPlayer.Character:WaitForChild("HumanoidRootPart"))
+            wait(0.3)
+            game:GetService("ReplicatedStorage").WLOC:FireServer()
+            wait(0.2)
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.DEATHBARRIER.CFrame
+        else
+            game:GetService("StarterGui"):SetCore("SendNotification",{Title = "Error",Text = "Need Warp Glove And Located in the Arena",Icon = "rbxassetid://7733658504",Duration = 10})
+        end
+    end)
 
     local Section = Tab:NewSection("Get Plank Glove")
 
@@ -1607,6 +1723,20 @@ block.Parent = game.Workspace
             workspace.Arena.CubeOfDeathArea["the cube of death(i heard it kills)"].CanTouch = true
         end
     end)
+
+    Section:NewToggle("Anti Ice", "Antis", function(state)
+        getgenv().antiicesb = state
+        while getgenv().antiicesb do
+            for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+                    if v.Name == "Icecube" then
+                    v:Destroy()
+                    game.Players.LocalPlayer.Character.Humanoid.PlatformStand = false
+                    game.Players.LocalPlayer.Character.Humanoid.AutoRotate = true
+                end
+            end
+        task.wait()
+        end
+    end)
     
     local Tab = Window:NewTab("Player")
     
@@ -1836,11 +1966,7 @@ block.Parent = game.Workspace
         end
         while getgenv().istemespsra do
             for i,v in ipairs(game.Workspace.Items:GetChildren()) do
-                if v.Parent.Name == "Backpack" then
-                    if v.ClassName == "Tool" and v:FindFirstChild("Handle") then
-                        v:FindFirstChild("espitemsr"):Destroy()
-                    end
-                elseif v.ClassName == "Tool" and v:FindFirstChild("Handle") and v:FindFirstChild("espitemsr") == nil then
+                if v.ClassName == "Tool" and v:FindFirstChild("Handle") and v:FindFirstChild("espitemsr") == nil then
                     local espitemsr = Instance.new("BillboardGui", v)
                     espitemsr.Adornee = v
                     espitemsr.Name = "espitemsr"
