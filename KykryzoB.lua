@@ -2021,6 +2021,21 @@ block.Parent = game.Workspace
                     GloExt.TextStrokeTransparency = 0
                     GloExt.Text = v.Glove.Value
                 end
+                if v ~= game.Players.Loaded and v.Character and v.Character:FindFirstChild("LeftLeg") and v.Character.inMatch.Value == true and v.Character.LeftLeg:FindFirstChild("Nametag1") == nil then
+                    Nametag1 = Instance.new("BillboardGui", v.Character.LeftLeg)
+                    Nametag1.Name = "Nametag1"
+                    Nametag1.Size = UDim2.new(0, 100, 0, 100)
+                    Nametag1.StudsOffset= Vector3.new(0, -1, -1)
+                    Nametag1.AlwaysOnTop = true
+                    GloEx1 = Instance.new("TextLabel", Nametag1)
+                    GloEx1.BackgroundTransparency = 1
+                    GloEx1.Size = UDim2.new(0, 100, 0, 100)
+                    GloEx1.TextSize = 17
+                    GloEx1.Font = Enum.Font.SourceSansSemibold
+                    GloEx1.TextColor3 = Color3.fromRGB(238,201,0)
+                    GloEx1.TextStrokeTransparency = 0
+                    GloEx1.Text = v.Name
+                end
             end
             for i, v in ipairs(game.Players:GetChildren()) do
                 if v ~= game.Players.LocalPlayer and v.Character and v.Character:FindFirstChild("Torso") and v.Character.inMatch.Value == true and v.Character.Torso:FindFirstChild("plresp") == nil then
@@ -3514,9 +3529,10 @@ block.Parent = game.Workspace
         getgenv().slpaaurachrev = state
     
         while getgenv().slpaaurachrev do
+            local asadas = game.Players.LocalPlayer.Character.Highlight.OutlineColor
             for i,v in pairs(game.Players:GetChildren()) do
                 if v ~= game.Players.LocalPlayer and v.Character then
-                    if v.Character:FindFirstChild("HumanoidRootPart") and v.Character:FindFirstChild("Ragdolled").Value == false then
+                    if v.Character:FindFirstChild("HumanoidRootPart") and v.Character:FindFirstChild("Ragdolled").Value == false and asadas ~= v.Character.Highlight.OutlineColor then
                         Magnitude = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Character.HumanoidRootPart.Position).Magnitude
                         if 25 >= Magnitude then
                             game:GetService("ReplicatedStorage"):WaitForChild("GeneralHit"):FireServer(v.Character:WaitForChild("HumanoidRootPart"))
@@ -3527,6 +3543,26 @@ block.Parent = game.Workspace
         task.wait()
         end
     end)
+
+    local Section = Tab:NewSection("Spam Snow Ball Players")
+
+    Section:NewToggle("Spam Snow Ball", "Spam", function(state)
+        getgenv().spamsnowball = state
+        while true do
+            for i, v in pairs(game.Players:GetChildren()) do
+                if v ~= game.Players.LocalPlayer and v.Character then
+                    local args = {
+                        [1] = 250,
+                        [2] = Vector3.new(151.39553833007812, 185.8904266357422, -108.95265197753906),
+                        [3] = game.Players.baconsGood2138.Character.HumanoidRootPart.CFrame
+                    }
+                    
+                    game:GetService("ReplicatedStorage"):WaitForChild("GeneralAbility"):FireServer(unpack(args))
+                end
+            end
+        task.wait()
+        end
+    end)                    
     
     local Tab = Window:NewTab("Misc")
     
@@ -4436,6 +4472,179 @@ for i,v in ipairs(game:GetService("Workspace"):GetDescendants()) do
         Rainbow = true
     })
 
+    elseif game.PlaceId == 18550498098 then
+
+        local safeport = Instance.new("Part", Workspace)
+        safeport.Name = "SafePort15"
+        safeport.Size = Vector3.new(2000, 10, 2000) 
+        safeport.Transparency = 0.5 
+        safeport.CanCollide = true
+        safeport.Anchored = true
+        safeport.CFrame = CFrame.new(595, 120, -330)
+
+    game:GetService("StarterGui"):SetCore("SendNotification",{Title = "Welcome!",Text = "Welcome to Hub Kykyryz0B.",Icon = "rbxassetid://7733960981",Duration = 10})
+    
+    local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Giangplay/Script/main/Kavo.lua"))()
+    
+    local Window = Library.CreateLib("Kykyryz0B Hub | THe Guide Boss Fight", "DarkTheme")
+    
+    local Tab = Window:NewTab("INFO")
+    
+    local Section = Tab:NewSection("Creator")
+    
+    Section:NewButton("Click to copy", "if you have bug and ideas dm me", function()
+        setclipboard('kykyryzo8')
+    end)
+    
+    local Section = Tab:NewSection("Creator UI and Helper with function")
+    
+    Section:NewButton("Giangplay", "INFO", function()
+        game:GetService("StarterGui"):SetCore("SendNotification",{Title = "Creator UI",Text = "Giangplay.",Icon = "rbxassetid://7733955511",Duration = 10})
+    end)
+    
+    local Section = Tab:NewSection("Discord Server")
+    
+    Section:NewButton("Click to copy", "INFO", function()
+        setclipboard('https://discord.gg/TjSpKFNnN3')
+    end)
+    
+    local Section = Tab:NewSection("Telegram")
+    
+    Section:NewButton("Click to copy", "INFO", function()
+        setclipboard("https://t.me/Kykyryz0B")
+    end)
+    
+    local Section = Tab:NewSection("Youtube")
+    
+    Section:NewButton("Click to copy", "INFO", function()
+        setclipboard("https://www.youtube.com/channel/UCgqxZ4MrGPp13dlZyotp_fQ")
+    end)
+
+    local Tab = Window:NewTab("Combat")
+
+    local Section = Tab:NewSection("Auto Slap")
+
+    Section:NewToggle("Auto Slap Golem", ".", function(state)
+        getgenv().autoslapgolem = state
+        while getgenv().autoslapgolem do
+            if game.Players.LocalPlayer.Backpack:FindFirstChild("Lantern") then 
+                game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack.Lantern) 
+            end
+            if game.Players.LocalPlayer.Character:FindFirstChild("Lantern") then 
+                ----
+            end
+            for i,v in pairs(game.workspace:GetChildren()) do
+                if v.Name == "golem" and v:FindFirstChild("Hitbox") then
+                    game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Tool"):Activate()
+                    local args = {
+                        [1] = "Hit",
+                        [2] = v.Hitbox
+                    }
+            
+                    game.Players.LocalPlayer.Character.Lantern.Network:FireServer(unpack(args))
+                end
+            end
+        task.wait()
+        end
+    end)
+
+    Section:NewToggle("Auto Slap Track", ".", function(state)
+        getgenv().autoslaptrack = state
+        while getgenv().autoslaptrack do
+            if game.Players.LocalPlayer.Backpack:FindFirstChild("Lantern") then 
+                game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack.Lantern) 
+            end
+            if game.Players.LocalPlayer.Character:FindFirstChild("Lantern") then 
+                ----
+            end
+            for i,v in pairs(game.workspace:GetChildren()) do
+                if v.Name == "TrackGloveMissile" then
+                    game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Tool"):Activate()
+                    local args = {
+                        [1] = "Hit",
+                        [2] = v
+                    }
+            
+                    game.Players.LocalPlayer.Character.Lantern.Network:FireServer(unpack(args))
+                end
+            end
+        task.wait()
+        end
+    end)
+
+    Section:NewToggle("Auto Slap Replica NPC", "/", function(state)
+        getgenv().autoslapreplicanpc = state
+        while getgenv().autoslapreplicanpc do
+        if game.Players.LocalPlayer.Backpack:FindFirstChild("Lantern") then 
+            game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack.Lantern) 
+        end
+        if game.Players.LocalPlayer.Character:FindFirstChild("Lantern") then 
+            ----
+        end
+        for i,v in pairs(game.workspace:GetChildren()) do
+            if v.Name == "ReplicaNPC" and v:FindFirstChild("HumanoidRootPart") then
+                game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Tool"):Activate()
+                local args = {
+                    [1] = "Hit",
+                    [2] = v.HumanoidRootPart
+                }
+        
+                game.Players.LocalPlayer.Character.Lantern.Network:FireServer(unpack(args))
+            end
+        end
+        task.wait()
+    end
+end)
+
+Section:NewToggle("Aotu Slap Guide", "/", function(state)
+    getgenv().autoslapguide = state
+    while getgenv().autoslapguide do
+        if game.Players.LocalPlayer.Backpack:FindFirstChild("Lantern") then 
+            game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack.Lantern) 
+        end
+        if game.Players.LocalPlayer.Character:FindFirstChild("Lantern") then 
+            ----
+        end
+        for i,v in pairs(game.workspace:GetChildren()) do
+            if v.Name == "GuideNPC" and v:FindFirstChild("HumanoidRootPart") then
+                game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Tool"):Activate()
+                local args = {
+                    [1] = "Hit",
+                    [2] = v.HumanoidRootPart
+                }
+        
+                game.Players.LocalPlayer.Character.Lantern.Network:FireServer(unpack(args))
+            end
+        end
+    task.wait()
+    end
+end)
+
+local Tab = Window:NewTab("Misc")
+
+local Section = Tab:NewSection("Teloport")
+
+Section:NewButton("Get 4 HP", "/", function()
+    ogl = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(3271.42334, -218.088181, 822.746155, -0.994649589, 0.00018143536, 0.103305899, -8.53231885e-09, 0.99999845, -0.00175637181, -0.103306055, -0.00174697535, -0.994648099)
+    wait(0.5)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = ogl
+end)
+
+Section:NewButton("Get Regeneration", "/", function()
+    ogl = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(3286.16675, -67.2077789, 823.898865, -0.98922509, -0.00276089297, 0.146376535, 9.32137123e-09, 0.99982214, 0.0188582912, -0.146402568, 0.0186550952, -0.989049196)
+    wait(0.5)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = ogl
+end)
+
+Section:NewButton("TP to lever", "/", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(3267.97485, -72.9661789, 823.711304, -0.00727955392, 0.085996896, -0.996268809, 8.27937185e-09, 0.996295214, 0.0859991759, 0.999973476, 0.000626027409, -0.00725258561)
+end)
+
+Section:NewButton("Tp to SafePort", ".", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(595, 122, -330)
+end)
     else
         game:GetService("StarterGui"):SetCore("SendNotification",{Title = "Error",Text = "You're in the wrong game.",Icon = "rbxassetid://7733658504",Duration = 10})
     end
