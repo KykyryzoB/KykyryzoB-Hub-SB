@@ -4486,7 +4486,7 @@ for i,v in ipairs(game:GetService("Workspace"):GetDescendants()) do
     
     local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Giangplay/Script/main/Kavo.lua"))()
     
-    local Window = Library.CreateLib("Kykyryz0B Hub | THe Guide Boss Fight", "DarkTheme")
+    local Window = Library.CreateLib("Kykyryz0B Hub | The Guide Boss Fight", "DarkTheme")
     
     local Tab = Window:NewTab("INFO")
     
@@ -4596,7 +4596,7 @@ for i,v in ipairs(game:GetService("Workspace"):GetDescendants()) do
     end
 end)
 
-Section:NewToggle("Aotu Slap Guide", "/", function(state)
+Section:NewToggle("Auto Slap Guide", "/", function(state)
     getgenv().autoslapguide = state
     while getgenv().autoslapguide do
         if game.Players.LocalPlayer.Backpack:FindFirstChild("Lantern") then 
@@ -4645,6 +4645,68 @@ end)
 Section:NewButton("Tp to SafePort", ".", function()
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(595, 122, -330)
 end)
+
+elseif game.PlaceId == 18698003301 then
+
+    game:GetService("StarterGui"):SetCore("SendNotification",{Title = "Welcome!",Text = "Welcome to Hub Kykyryz0B.",Icon = "rbxassetid://7733960981",Duration = 10})
+    
+    local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Giangplay/Script/main/Kavo.lua"))()
+    
+    local Window = Library.CreateLib("Kykyryz0B Hub | Slap League", "DarkTheme")
+    
+    local Tab = Window:NewTab("INFO")
+    
+    local Section = Tab:NewSection("Creator")
+    
+    Section:NewButton("Click to copy", "if you have bug and ideas dm me", function()
+        setclipboard('kykyryzo8')
+    end)
+    
+    local Section = Tab:NewSection("Creator UI and Helper with function")
+    
+    Section:NewButton("Giangplay", "INFO", function()
+        game:GetService("StarterGui"):SetCore("SendNotification",{Title = "Creator UI",Text = "Giangplay.",Icon = "rbxassetid://7733955511",Duration = 10})
+    end)
+    
+    local Section = Tab:NewSection("Discord Server")
+    
+    Section:NewButton("Click to copy", "INFO", function()
+        setclipboard('https://discord.gg/TjSpKFNnN3')
+    end)
+    
+    local Section = Tab:NewSection("Telegram")
+    
+    Section:NewButton("Click to copy", "INFO", function()
+        setclipboard("https://t.me/Kykyryz0B")
+    end)
+    
+    local Section = Tab:NewSection("Youtube")
+    
+    Section:NewButton("Click to copy", "INFO", function()
+        setclipboard("https://www.youtube.com/channel/UCgqxZ4MrGPp13dlZyotp_fQ")
+    end)
+
+    local Tab = Window:NewTab("Combat")
+
+    local Section = Tab:NewSection("Auto Slap")
+
+    Section:NewToggle("Auto Slap Players", ".", function(state)
+        getgenv().autoslapplayers = state
+        while getgenv().autoslapplayers do
+            for i, v in pairs(game.Players:GetChildren()) do
+                if v ~= game.Players.LocalPlayer and v.Character then
+                    local args = {
+                        [1] = v.Character:FindFirstChild("Right Arm"),
+                        [2] = Vector3.new(0.5891937017440796, 0.6427874565124512, -0.4895661175251007)
+                    }
+                    
+                    game:GetService("ReplicatedStorage").remotes.Slap:FireServer(unpack(args))
+                end
+            end
+        task.wait()
+        end
+    end)     
+
     else
         game:GetService("StarterGui"):SetCore("SendNotification",{Title = "Error",Text = "You're in the wrong game.",Icon = "rbxassetid://7733658504",Duration = 10})
     end
