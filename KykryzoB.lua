@@ -4646,6 +4646,43 @@ Section:NewButton("Tp to SafePort", ".", function()
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(595, 122, -330)
 end)
 
+local Tab = Window:NewTab("Player")
+    
+local Section = Tab:NewSection("Speed Hack")
+
+Section:NewTextBox("Speed Hack", "TextboxInfo", function(txt)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = txt
+end)
+
+Section:NewSlider("Speed Hack", "SliderInfo", 500, 20, function(s)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+local Section = Tab:NewSection("Jump Hack")
+
+Section:NewTextBox("Jump Hack", "TextboxInfo", function(txt)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = txt
+end)
+
+Section:NewSlider("Jump Hack", "SliderInfo", 500, 50, function(s)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+end)
+
+local Section = Tab:NewSection("Gravity Hack")
+
+Section:NewTextBox("Gravity Hack", "TextboxInfo", function(txt)
+    workspace.Gravity = txt
+end)
+
+Section:NewSlider("Gravity Hack", "SliderInfo", 500, 0, function(s)
+    workspace.Gravity = s
+end)
+
+Library:ToggleUIGui({
+      Icons = "rbxassetid://16393121436",
+      Rainbow = true
+})
+
 elseif game.PlaceId == 18698003301 then
 
     game:GetService("StarterGui"):SetCore("SendNotification",{Title = "Welcome!",Text = "Welcome to Hub Kykyryz0B.",Icon = "rbxassetid://7733960981",Duration = 10})
@@ -4695,6 +4732,11 @@ elseif game.PlaceId == 18698003301 then
         while getgenv().autoslapplayers do
             for i, v in pairs(game.Players:GetChildren()) do
                 if v ~= game.Players.LocalPlayer and v.Character then
+                    if game.Players.LocalPlayer.Backpack:FindFirstChildWhichIsA("Tool") then 
+                        game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack.Default) 
+                    else
+                        --
+                    end
                     local args = {
                         [1] = v.Character:FindFirstChild("Right Arm"),
                         [2] = Vector3.new(0.5891937017440796, 0.6427874565124512, -0.4895661175251007)
@@ -4705,7 +4747,44 @@ elseif game.PlaceId == 18698003301 then
             end
         task.wait()
         end
-    end)     
+    end)  
+    
+    local Tab = Window:NewTab("Player")
+    
+    local Section = Tab:NewSection("Speed Hack")
+    
+    Section:NewTextBox("Speed Hack", "TextboxInfo", function(txt)
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = txt
+    end)
+    
+    Section:NewSlider("Speed Hack", "SliderInfo", 500, 20, function(s)
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+    end)
+    
+    local Section = Tab:NewSection("Jump Hack")
+    
+    Section:NewTextBox("Jump Hack", "TextboxInfo", function(txt)
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = txt
+    end)
+    
+    Section:NewSlider("Jump Hack", "SliderInfo", 500, 50, function(s)
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+    end)
+    
+    local Section = Tab:NewSection("Gravity Hack")
+    
+    Section:NewTextBox("Gravity Hack", "TextboxInfo", function(txt)
+        workspace.Gravity = txt
+    end)
+    
+    Section:NewSlider("Gravity Hack", "SliderInfo", 500, 0, function(s)
+        workspace.Gravity = s
+    end)
+    
+    Library:ToggleUIGui({
+          Icons = "rbxassetid://16393121436",
+          Rainbow = true
+    })
 
     else
         game:GetService("StarterGui"):SetCore("SendNotification",{Title = "Error",Text = "You're in the wrong game.",Icon = "rbxassetid://7733658504",Duration = 10})
