@@ -4732,11 +4732,6 @@ elseif game.PlaceId == 18698003301 then
         while getgenv().autoslapplayers do
             for i, v in pairs(game.Players:GetChildren()) do
                 if v ~= game.Players.LocalPlayer and v.Character then
-                    if game.Players.LocalPlayer.Backpack:FindFirstChildWhichIsA("Tool") then 
-                        game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack.Default) 
-                    else
-                        --
-                    end
                     local args = {
                         [1] = v.Character:FindFirstChild("Right Arm"),
                         [2] = Vector3.new(0.5891937017440796, 0.6427874565124512, -0.4895661175251007)
