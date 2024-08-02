@@ -4744,6 +4744,27 @@ elseif game.PlaceId == 18698003301 then
         end
     end)  
     
+    local Tab = Window:NewTab("Antis")
+
+    local Section = Tab:NewSection("Antis")
+    
+    Section:NewToggle("Anti Void", "Working on Map", function(state)
+        if state then
+            local void = Instance.new("Part", workspace)
+            void.Name = "bruhhhh"
+            void.Size = Vector3.new(2000, 1, 2000)
+            void.Transparency = 0.5 
+            void.CanCollide = true 
+            void.Anchored = true
+            void.CFrame = CFrame.new(-119, -1.249996185, 62.75, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+            void.Parent = game.Workspace
+        else
+            if workspace:FindFirstChild("bruhhhh") then
+                workspace.bruhhhh:Destroy()
+            end
+        end
+    end)
+
     local Tab = Window:NewTab("Player")
     
     local Section = Tab:NewSection("Speed Hack")
