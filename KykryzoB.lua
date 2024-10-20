@@ -101,6 +101,36 @@ if game.PlaceId == 6403373529 then
     end
     end)
 
+    local Section = Tab:NewSection("Add Power to Psycho")
+
+    Section:NewButton("Add Power USE G BUTTON", "a", function()
+        local a = Instance.new('ScreenGui', game.Players.LocalPlayer.PlayerGui)
+        local b = Instance.new('TextLabel')
+        b.Size = UDim2.new(0,200,0,50)
+        b.Position = UDim2.new(0.8,0,0,0)
+        b.BackgroundTransparency = 1
+        b.TextSize = 30 
+        b.TextColor3 = Color3.new(1,1,1)
+        b.Text = 'G use kongfu'
+        b.Parent = a
+        fireclickdetector(game.Workspace.Lobby.Psycho.ClickDetector)
+        wait(0.5)
+        local a = game.Workspace.Lobby.Teleport1.CFrame
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = a
+        wait(1)
+        tool = game.Players.LocalPlayer.Character.Psycho
+        tool.Glove.Color = Color3.new(1,0,0)
+        tool.Name = 'Kongfu psycho'
+        local a = game:GetService('ReplicatedStorage')
+        local b = {[1]={['throwbackAlpha']=999}}
+        local function c(c,d)
+            if c.KeyCode==Enum.KeyCode.G then 
+            	a.Psychokinesis:InvokeServer(unpack(b))
+            end 
+        end
+        game:GetService('UserInputService').InputBegan:Connect(c)
+    end)
+
     local Section = Tab:NewSection("Spam Retro Ability")
 
     Section:NewDropdown("Choose Ability", "All Glove", {"Ban Hammer", "Bomb", "Rocket Launcher"}, function(currentOption)
@@ -526,6 +556,40 @@ end
     end)
     
     local Tab = Window:NewTab("Badge")
+
+    local Section = Tab:NewSection("Get Poltergeist Glove")
+
+    Section:NewButton("Get Poltergeisst Glove", "", function()
+    local teleportFunc = queueonteleport or queue_on_teleport or syn and syn.queue_on_teleport
+    if teleportFunc then
+        teleportFunc([[
+            if not game:IsLoaded() then
+                game.Loaded:Wait()
+            end
+            repeat wait() until game.Players.LocalPlayer
+            wait(4)
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/KykyryzoB/KykyryzoB-Hub-SB/main/KykryzoB.lua"))()
+        ]])
+    end
+    game:GetService("TeleportService"):Teleport(103505724406848)
+end)
+
+    local Section = Tab:NewSection("Get Bind Glove")
+
+    Section:NewButton("Get Bind Glove", "", function()
+        local teleportFunc = queueonteleport or queue_on_teleport or syn and syn.queue_on_teleport
+    if teleportFunc then
+        teleportFunc([[
+            if not game:IsLoaded() then
+                game.Loaded:Wait()
+            end
+            repeat wait() until game.Players.LocalPlayer
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Orb["Meshes/rock chain glove_defaultglove_cell.001"].CFrame
+        fireclickdetector(workspace.Orb.ClickDetector)
+        ]])
+    end
+    game:GetService("TeleportService"):Teleport(74169485398268)
+end)
 
     local Section = Tab:NewSection("Get The Schlob Glove")
 
@@ -3542,27 +3606,7 @@ block.Parent = game.Workspace
             end
         task.wait()
         end
-    end)
-
-    local Section = Tab:NewSection("Spam Snow Ball Players")
-
-    Section:NewToggle("Spam Snow Ball", "Spam", function(state)
-        getgenv().spamsnowball = state
-        while true do
-            for i, v in pairs(game.Players:GetChildren()) do
-                if v ~= game.Players.LocalPlayer and v.Character then
-                    local args = {
-                        [1] = 250,
-                        [2] = Vector3.new(151.39553833007812, 185.8904266357422, -108.95265197753906),
-                        [3] = game.Players.baconsGood2138.Character.HumanoidRootPart.CFrame
-                    }
-                    
-                    game:GetService("ReplicatedStorage"):WaitForChild("GeneralAbility"):FireServer(unpack(args))
-                end
-            end
-        task.wait()
-        end
-    end)                    
+    end)                  
     
     local Tab = Window:NewTab("Misc")
     
@@ -3578,6 +3622,95 @@ block.Parent = game.Workspace
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(156.959579, 178.328217, -112.697945, 0.992797017, 0.112782016, -0.0404260047, 7.24666416e-09, 0.337422162, 0.94135344, 0.119808368, -0.934572875, 0.334991723)
         end
     end)
+
+    local Section = Tab:NewSection("Aim Bot")
+
+    Section:NewToggle("Aim", "/", function(state)
+        getgenv().aim = state
+        while getgenv().aim do
+            if game:GetService("Players").LocalPlayer.Team == "Red Team" then
+                local function aimbotfunction()
+                    local Cam = workspace.CurrentCamera
+                  
+                    function lookAt(target, eye)
+                        Cam.CFrame = CFrame.new(target, eye)
+                    end
+                  
+                    function getClosestPlayerToLocalPlayer(trg_part)
+                        local nearest = nil
+                        local last = math.huge
+                        for _, v in pairs(Players:GetPlayers()) do
+                            if v ~= LocalPlayer and v.Character and v.Character:FindFirstChild(trg_part) then
+                                local distance = (LocalPlayer.Character[trg_part].Position - v.Character[trg_part].Position).magnitude
+                                if distance < last then
+                                    last = distance
+                                    nearest = v
+                                end
+                            end
+                        end
+                        return nearest
+                    end
+                  
+                    function checkWall(origin, target)
+                        local raycastParams = RaycastParams.new()
+                        raycastParams.FilterType = Enum.RaycastFilterType.Blacklist
+                        raycastParams.FilterDescendantsInstances = {workspace.CurrentCamera, LocalPlayer.Character}
+                        local result = workspace:Raycast(origin, (target - origin).unit * 1000, raycastParams)
+                        return result == nil
+                    end
+                  
+                    local closest = getClosestPlayerToLocalPlayer("Torso")
+                    if _G.aimbot == true and closest and closest.Character:FindFirstChild("Torso") and closest.Team == "Blue Team" then
+                        if checkWall(Cam.CFrame.p, closest.Character:FindFirstChild("Torso").Position) then
+                            lookAt(Cam.CFrame.p, closest.Character:FindFirstChild("Torso").Position)
+                        end
+                    end
+                end
+                  
+                coroutine.wrap(aimbotfunction)()
+            elseif game:GetService("Players").LocalPlayer.Team == "Blue Team" then
+                local function aimbotfunction()
+                    local Cam = workspace.CurrentCamera
+                  
+                    function lookAt(target, eye)
+                      Cam.CFrame = CFrame.new(target, eye)
+                    end
+                  
+                    function getClosestPlayerToLocalPlayer(trg_part)
+                      local nearest = nil
+                      local last = math.huge
+                      for _, v in pairs(Players:GetPlayers()) do
+                        if v ~= LocalPlayer and v.Character and v.Character:FindFirstChild(trg_part) then
+                          local distance = (LocalPlayer.Character[trg_part].Position - v.Character[trg_part].Position).magnitude
+                          if distance < last then
+                            last = distance
+                            nearest = v
+                          end
+                        end
+                      end
+                      return nearest
+                    end
+                  
+                    function checkWall(origin, target)
+                      local raycastParams = RaycastParams.new()
+                      raycastParams.FilterType = Enum.RaycastFilterType.Blacklist
+                      raycastParams.FilterDescendantsInstances = {workspace.CurrentCamera, LocalPlayer.Character}
+                      local result = workspace:Raycast(origin, (target - origin).unit * 1000, raycastParams)
+                      return result == nil
+                    end
+                  
+                    local closest = getClosestPlayerToLocalPlayer("Torso")
+                    if _G.aimbot == true and closest and closest.Character:FindFirstChild("Torso") and closest.Team == "Red Team" then
+                      if checkWall(Cam.CFrame.p, closest.Character:FindFirstChild("Torso").Position) then
+                        lookAt(Cam.CFrame.p, closest.Character:FindFirstChild("Torso").Position)
+                      end
+                    end
+                  end
+                end
+            task.wait()
+            end
+        end)
+                  
     
     local Tab = Window:NewTab("Player")
     
@@ -4801,6 +4934,116 @@ elseif game.PlaceId == 18698003301 then
           Icons = "rbxassetid://16393121436",
           Rainbow = true
     })
+
+elseif game.PlaceId == 74169485398268 then
+
+    
+    game:GetService("StarterGui"):SetCore("SendNotification",{Title = "Welcome!",Text = "Welcome to Hub Kykyryz0B.",Icon = "rbxassetid://7733960981",Duration = 10})
+
+    game.Players.LocalPlayer.CameraMaxZoomDistance = 300
+
+    game:GetService("StarterGui"):SetCore("SendNotification",{Title = "CAMERA UNLOCKED",Text = "YOUR CAM GOT UNLOCKE",Icon = "rbxassetid://7733960981",Duration = 10})
+    
+    local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Giangplay/Script/main/Kavo.lua"))()
+    
+    local Window = Library.CreateLib("Kykyryz0B Hub | Binded Maze", "DarkTheme")
+    
+    local Tab = Window:NewTab("INFO")
+    
+    local Section = Tab:NewSection("Creator")
+    
+    Section:NewButton("Click to copy", "if you have bug and ideas dm me", function()
+        setclipboard('kykyryzo8')
+    end)
+    
+    local Section = Tab:NewSection("Creator UI and Helper with function")
+    
+    Section:NewButton("Giangplay", "INFO", function()
+        game:GetService("StarterGui"):SetCore("SendNotification",{Title = "Creator UI",Text = "Giangplay.",Icon = "rbxassetid://7733955511",Duration = 10})
+    end)
+    
+    local Section = Tab:NewSection("Discord Server")
+    
+    Section:NewButton("Click to copy", "INFO", function()
+        setclipboard('https://discord.gg/TjSpKFNnN3')
+    end)
+    
+    local Section = Tab:NewSection("Telegram")
+    
+    Section:NewButton("Click to copy", "INFO", function()
+        setclipboard("https://t.me/Kykyryz0B")
+    end)
+    
+    local Section = Tab:NewSection("Youtube")
+    
+    Section:NewButton("Click to copy", "INFO", function()
+        setclipboard("https://www.youtube.com/channel/UCgqxZ4MrGPp13dlZyotp_fQ")
+    end)
+
+    local Tab = Window:NewTab("Badge")
+
+    local Section = Tab:NewSection("Get Bind Glove")
+
+    Section:NewButton("Get Bind Glove", "", function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Orb["Meshes/rock chain glove_defaultglove_cell.001"].CFrame
+        fireclickdetector(workspace.Orb.ClickDetector)
+    end)
+
+elseif game.PlaceId == 103505724406848 then
+
+    game:GetService("StarterGui"):SetCore("SendNotification",{Title = "Welcome!",Text = "Welcome to Hub Kykyryz0B.",Icon = "rbxassetid://7733960981",Duration = 10})
+    
+    local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Giangplay/Script/main/Kavo.lua"))()
+    
+    local Window = Library.CreateLib("Kykyryz0B Hub | Binded Maze", "DarkTheme")
+    
+    local Tab = Window:NewTab("INFO")
+    
+    local Section = Tab:NewSection("Creator")
+    
+    Section:NewButton("Click to copy", "if you have bug and ideas dm me", function()
+        setclipboard('kykyryzo8')
+    end)
+    
+    local Section = Tab:NewSection("Creator UI and Helper with function")
+    
+    Section:NewButton("Giangplay", "INFO", function()
+        game:GetService("StarterGui"):SetCore("SendNotification",{Title = "Creator UI",Text = "Giangplay.",Icon = "rbxassetid://7733955511",Duration = 10})
+    end)
+    
+    local Section = Tab:NewSection("Discord Server")
+    
+    Section:NewButton("Click to copy", "INFO", function()
+        setclipboard('https://discord.gg/TjSpKFNnN3')
+    end)
+    
+    local Section = Tab:NewSection("Telegram")
+    
+    Section:NewButton("Click to copy", "INFO", function()
+        setclipboard("https://t.me/Kykyryz0B")
+    end)
+    
+    local Section = Tab:NewSection("Youtube")
+    
+    Section:NewButton("Click to copy", "INFO", function()
+        setclipboard("https://www.youtube.com/channel/UCgqxZ4MrGPp13dlZyotp_fQ")
+    end)
+
+    local Tab = Window:NewTab("Combat")
+
+    local Section = Tab:NewSection("Auto Slap NPC")
+
+    Section:NewToggle("Auto Slap NPC", "", function(state)
+        getgenv().autoslapNPC = state
+        while getgenv().autoslapNPC do
+            for i,v in ipairs(workspace.Enemies:GetChildren()) do
+                if v.Ragdolled.Value == false then
+                    game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("GeneralHit"):FireServer(v:WaitForChild("Left Arm"))
+                end
+            end
+        task.wait()
+        end
+    end)
 
     else
         game:GetService("StarterGui"):SetCore("SendNotification",{Title = "Error",Text = "You're in the wrong game.",Icon = "rbxassetid://7733658504",Duration = 10})
